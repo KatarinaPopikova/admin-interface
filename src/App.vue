@@ -1,10 +1,8 @@
 <template>
-  <div class="bg-gray-100">
-    <the-navigation />
-    <main class="content">
-      <router-view />
-    </main>
-  </div>
+  <the-navigation />
+  <main class="content">
+    <router-view />
+  </main>
 </template>
 
 <script>
@@ -34,7 +32,7 @@ nav {
     @apply text-sky-900;
 
     &.router-link-exact-active {
-      @apply text-main-color;
+      @apply text-main-color-500;
     }
   }
 }

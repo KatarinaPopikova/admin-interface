@@ -6,7 +6,8 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        "main-color": colors.emerald["500"],
+        "main-color": colors.emerald,
+        "danger-color": colors.red,
       },
     },
   },
