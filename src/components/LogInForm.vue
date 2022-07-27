@@ -52,6 +52,7 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
+import axios from "axios";
 
 export default defineComponent({
   name: "TheLoginForm",
@@ -63,8 +64,19 @@ export default defineComponent({
     };
   },
   methods: {
-    doLogin(): void {
-      console.log(this.username);
+    async doLogin(): Promise<void> {
+      const response = await axios.post("api-token/", {
+        username: this.username,
+        password: this.password,
+      });
+      localStorage.setItem("token", response.data.token);
+
+      // .then((response) => {
+      //     console.log(response);
+      //   })
+      //       .catch((err) => {
+      //         console.log(err);
+      //       });
     },
   },
 });
