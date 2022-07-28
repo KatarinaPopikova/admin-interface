@@ -65,20 +65,36 @@ export default defineComponent({
   },
   methods: {
     async doLogin(): Promise<void> {
-      const response = await axios.post("api-token/", {
-        username: this.username,
-        password: this.password,
-      });
-      localStorage.setItem("token", response.data.token);
-
-      // .then((response) => {
-      //     console.log(response);
-      //   })
-      //       .catch((err) => {
-      //         console.log(err);
-      //       });
+      await axios
+        .post("api-token/", {
+          username: this.username,
+          password: this.password,
+        })
+        .then((response) => {
+          console.log(response);
+          console.log(response.data.access);
+          localStorage.setItem("access", response.data.access);
+          this.$router.push("admin/");
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     },
   },
+  // doLogin() {
+  //   const loginData = {
+  //     username: this.username,
+  //     password: this.password,
+  //   };
+  //   axios
+  //     .post("http://127.0.0.1:8000/api-token/", loginData)
+  //     .then((response) => {
+  //       console.log(response);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // },
 });
 </script>
 
