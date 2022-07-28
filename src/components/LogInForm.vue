@@ -1,7 +1,7 @@
 <template>
   <main>
     <div class="flex items-center justify-center min-h-full">
-      <div class="px-8 py-6 mt-4 text-left bg-white shadow-lg rounded-3xl">
+      <div class="px-8 py-6 mt-4 text-left bg-white shadow-lg rounded-3xl w-96">
         <div class="flex justify-center">
           <font-awesome-icon icon="fa-regular fa-user" size="5x" />
         </div>
@@ -9,15 +9,18 @@
         <form v-on:submit.prevent="doLogin">
           <div class="mt-4">
             <div>
+              <span class="danger-message" v-if="incorrectAuth">
+                Nesprávne prihlasovacie údaje
+              </span>
               <label class="block" for="email">E-mail*</label>
               <input
                 type="text"
                 placeholder="email@example.com"
                 v-model="username"
                 aria-describedby="usernameHelp"
-                class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-main-color-500"
+                class="login-input"
               />
-              <span class="text-xs text-red-700" id="usernameHelp">
+              <span class="danger-message" v-if="!username">
                 Povinné vyplniť
               </span>
             </div>
@@ -27,12 +30,9 @@
                 type="password"
                 placeholder="**********"
                 v-model="password"
-                class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-main-color-500"
+                class="login-input"
               />
-              <span
-                v-if="incorrectAuth"
-                class="text-xs tracking-wide text-danger-color-600"
-              >
+              <span class="danger-message" v-if="!password">
                 Povinné vyplniť
               </span>
             </div>
@@ -52,7 +52,6 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import axios from "axios";
 
 export default defineComponent({
   name: "TheLoginForm",
@@ -65,37 +64,28 @@ export default defineComponent({
   },
   methods: {
     async doLogin(): Promise<void> {
-      await axios
-        .post("api-token/", {
+      this.$store
+        .dispatch("userLogin", {
           username: this.username,
           password: this.password,
         })
-        .then((response) => {
-          console.log(response);
-          console.log(response.data.access);
-          localStorage.setItem("access", response.data.access);
-          this.$router.push("admin/");
+        .then(() => {
+          this.$router.push({ name: "admin" });
         })
         .catch((err) => {
           console.log(err);
+          this.incorrectAuth = true;
         });
     },
   },
-  // doLogin() {
-  //   const loginData = {
-  //     username: this.username,
-  //     password: this.password,
-  //   };
-  //   axios
-  //     .post("http://127.0.0.1:8000/api-token/", loginData)
-  //     .then((response) => {
-  //       console.log(response);
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // },
 });
 </script>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.login-input {
+  @apply w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-main-color-500;
+}
+.danger-message {
+  @apply text-xs text-danger-color-700;
+}
+</style>
