@@ -46,6 +46,16 @@ export default createStore({
           console.log(err);
         });
     },
+    autoLogin(context) {
+      const userDataString = localStorage.getItem("access");
+      console.log(localStorage.getItem("access"));
+      if (userDataString) {
+        context.commit("updateStorage", {
+          access: userDataString,
+          refresh: null,
+        });
+      }
+    },
   },
   modules: {},
 });

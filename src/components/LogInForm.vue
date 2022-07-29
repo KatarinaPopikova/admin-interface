@@ -70,6 +70,7 @@ export default defineComponent({
           password: this.password,
         })
         .then(() => {
+          this.incorrectAuth = false;
           this.$router.push({ name: "admin" });
         })
         .catch((err) => {
@@ -77,6 +78,9 @@ export default defineComponent({
           this.incorrectAuth = true;
         });
     },
+  },
+  created() {
+    this.$store.dispatch(`autoLogin`);
   },
 });
 </script>

@@ -1,10 +1,8 @@
 <template>
-  <div class="block md:flex justify-evenly md:-mx-2">
-    <div
-      class="w-full lg:w-1/3 md:mx-2 mb-4 md:mb-0"
-      v-for="posts in APIData"
-      :key="posts.id"
-    >
+  <div
+    class="container mx-auto grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 pt-6 gap-8"
+  >
+    <div v-for="posts in APIData" :key="posts.id">
       <div
         class="relative max-w-md mx-auto xl:max-w-2xl min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-xl mt-16"
       >
@@ -12,8 +10,8 @@
           <div class="card-header mx-4 -mt-6">
             <a href="https://www.material-tailwind.com">
               <img
-                class="w-auto rounded-lg"
-                src="https://images.unsplash.com/photo-1540553016722-983e48a2cd10?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80"
+                class="w-full rounded-lg"
+                src="https://via.placeholder.com/150x100"
                 alt="tailwind-card-image"
               />
             </a>
@@ -46,6 +44,7 @@ export default defineComponent({
   },
   computed: mapState(["APIData"]),
   created() {
+    console.log(`Bearer ${localStorage.getItem("access")}`);
     getAPI
       .get("/posts/")
       .then((response) => {

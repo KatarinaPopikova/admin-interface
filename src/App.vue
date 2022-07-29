@@ -1,18 +1,13 @@
 <template>
-  <the-navigation />
   <main class="content">
     <router-view />
   </main>
 </template>
 
 <script>
-import TheNavigation from "@/components/TheNavigation";
-
 export default {
   name: "App",
-  components: {
-    TheNavigation,
-  },
+  components: {},
 };
 </script>
 
