@@ -1,6 +1,7 @@
 <template>
+  <admin-navigation />
   <div
-    class="container mx-auto grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 pt-6 gap-8"
+    class="container mx-auto grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 p-6 gap-8"
   >
     <div v-for="posts in APIData" :key="posts.id">
       <div
@@ -20,7 +21,7 @@
             <a href="#">
               <h4 class="font-semibold">{{ posts.title }}</h4>
             </a>
-            <p class="opcacity-90 mb-4">
+            <p class="mb-4">
               {{ posts.content }}
             </p>
           </div>
@@ -34,9 +35,11 @@
 import { getAPI } from "@/axios";
 import { defineComponent } from "vue";
 import { mapState } from "vuex";
+import AdminNavigation from "@/components/AdminNavigation.vue";
 
 export default defineComponent({
   name: "AdminView",
+  components: { AdminNavigation },
   data() {
     return {
       authorization: "",

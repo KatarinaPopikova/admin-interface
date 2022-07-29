@@ -70,10 +70,17 @@ export default defineComponent({
           password: this.password,
         })
         .then(() => {
-          this.incorrectAuth = false;
-          this.$router.push({ name: "admin" });
+          console.log("doLogin-then");
+          if (this.$store.getters.loggedIn) {
+            this.incorrectAuth = false;
+            this.$router.push({ name: "admin" });
+          } else {
+            this.incorrectAuth = true;
+          }
         })
         .catch((err) => {
+          console.log("doLogin-err");
+          console.log(err);
           console.log(err);
           this.incorrectAuth = true;
         });

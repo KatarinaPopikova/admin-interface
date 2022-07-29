@@ -25,6 +25,7 @@ export default createStore({
   actions: {
     userLogout(context) {
       if (context.getters.loggedIn) {
+        localStorage.removeItem("access");
         context.commit("destroyToken");
       }
     },
@@ -35,6 +36,7 @@ export default createStore({
           password: userCredentials.password,
         })
         .then((response) => {
+          console.log("userLogin-then");
           console.log(response);
           localStorage.setItem("access", response.data.access);
           context.commit("updateStorage", {
@@ -43,10 +45,13 @@ export default createStore({
           });
         })
         .catch((err) => {
+          context.dispatch("userLogout");
+          console.log("userLogin-err");
           console.log(err);
         });
     },
     autoLogin(context) {
+      console.log("autologin");
       const userDataString = localStorage.getItem("access");
       console.log(localStorage.getItem("access"));
       if (userDataString) {
