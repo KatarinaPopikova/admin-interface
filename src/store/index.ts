@@ -36,6 +36,7 @@ export default createStore({
         })
         .then((response) => {
           console.log(response);
+          localStorage.setItem("access", response.data.access);
           context.commit("updateStorage", {
             access: response.data.access,
             refresh: response.data.refresh,

@@ -9,6 +9,7 @@
 import TheNavigation from "@/components/TheNavigation";
 
 export default {
+  name: "App",
   components: {
     TheNavigation,
   },
