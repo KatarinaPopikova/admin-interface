@@ -15,11 +15,11 @@ import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { faUser } from "@fortawesome/free-regular-svg-icons";
 import {
   faArrowUpFromBracket,
-  faFlag,
+  faArrowRightFromBracket,
 } from "@fortawesome/free-solid-svg-icons";
 
 /* add icons to the library */
-library.add(faUser, faArrowUpFromBracket, faFlag);
+library.add(faUser, faArrowUpFromBracket, faArrowRightFromBracket);
 
 createApp(App)
   .use(store)
