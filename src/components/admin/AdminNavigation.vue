@@ -1,6 +1,8 @@
 <template>
   <nav id="admin-navigation" class="flex items-center justify-between">
-    <router-link to="/" class="pr-3">Infinela</router-link>
+    <router-link to="/" class="pr-3 text-main-color-400 text-2xl"
+      >Infinela</router-link
+    >
     <div class="flex items-center">
       <div class="search-input">
         <div class="flex items-center">
@@ -48,7 +50,7 @@ export default defineComponent({
       });
     },
     search() {
-      console.log(this.query);
+      window.eventBus.emit("filter-posts", this.query);
     },
   },
 });

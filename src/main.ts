@@ -4,6 +4,7 @@ import router from "./router";
 import store from "./store";
 import "./axios";
 import "./index.scss";
+import mitt, { Emitter } from "mitt";
 
 /* import the fontawesome core */
 import { library } from "@fortawesome/fontawesome-svg-core";
@@ -20,6 +21,14 @@ import {
   faMagnifyingGlass,
 } from "@fortawesome/free-solid-svg-icons";
 
+declare global {
+  interface Window {
+    // eslint-disable-next-line
+    eventBus: Emitter<any>;
+  }
+}
+
+window.eventBus = mitt();
 /* add icons to the library */
 library.add(
   faUser,
