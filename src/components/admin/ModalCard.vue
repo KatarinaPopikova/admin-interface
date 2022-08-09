@@ -6,20 +6,17 @@
   >
     <div
       id="modal"
-      class="rounded-3xl overflow-x-auto flex flex-col justify-between w-screen m-8 h-5/6 bg-white"
+      class="has-radius rounded-3xl overflow-x-auto flex flex-col justify-between w-screen m-8 h-5/6 bg-white"
     >
       <header
         id="modal-header"
         class="px-4 py-6 flex justify-between items-center"
       >
-        <h4 class="font-semibold">Title</h4>
-        <button
-          type="button"
-          class="w-7 p-2 bg-gray-300 rounded-full"
-          @click="close"
-        >
-          <img src="https://via.placeholder.com/150x100" alt="close button" />
-          <!-- X pridaj miesto tohto img  -->
+        <h3 class="font-semibold text-lg text-main-color-400 pl-2">
+          Some title
+        </h3>
+        <button type="button" class="w-10 h-10 rounded-full" @click="close">
+          <font-awesome-icon icon="fa-solid fa-xmark" />
         </button>
       </header>
 
