@@ -28,8 +28,7 @@ export default defineComponent({
       filteredPosts: [],
     };
   },
-  created() {
-    console.log(`Bearer ${localStorage.getItem("access")}`);
+  mounted() {
     getAPI
       .get("/posts/")
       .then((response) => {
@@ -39,8 +38,7 @@ export default defineComponent({
       .catch((err) => {
         console.log(err);
       });
-  },
-  mounted() {
+
     window.eventBus.on("filter-posts", (filterText) => {
       if (filterText === "") {
         this.filteredPosts = this.posts;

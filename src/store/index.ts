@@ -39,6 +39,9 @@ export default createStore({
           console.log("userLogin-then");
           console.log(response);
           localStorage.setItem("access", response.data.access);
+          getAPI.defaults.headers[
+            "Authorization"
+          ] = `Bearer ${localStorage.getItem("access")}`;
           context.commit("updateStorage", {
             access: response.data.access,
             refresh: response.data.refresh,

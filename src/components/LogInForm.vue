@@ -81,13 +81,27 @@ export default defineComponent({
         .catch((err) => {
           console.log("doLogin-err");
           console.log(err);
-          console.log(err);
           this.incorrectAuth = true;
         });
     },
   },
-  created() {
-    this.$store.dispatch(`autoLogin`);
+  mounted() {
+    this.$store
+      .dispatch(`autoLogin`)
+      .then(() => {
+        console.log("autoLogin-then");
+        if (this.$store.getters.loggedIn) {
+          this.incorrectAuth = false;
+          this.$router.push({ name: "admin" });
+        } else {
+          this.incorrectAuth = true;
+        }
+      })
+      .catch((err) => {
+        console.log("autoLogin-err");
+        console.log(err);
+        this.incorrectAuth = true;
+      });
   },
 });
 </script>
