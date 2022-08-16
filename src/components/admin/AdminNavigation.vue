@@ -17,7 +17,7 @@
           />
         </div>
       </div>
-      <div class="rounded-full bg-white p-3 m-4">Jazyk</div>
+      <language-switcher />
       <button
         type="button"
         class="rounded-full bg-white w-12 h-12 p-3 w-max box-border"
@@ -35,9 +35,11 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
+import LanguageSwitcher from "@/components/LanguageSwitcher.vue";
 
 export default defineComponent({
   name: "AdminNavigation",
+  components: { LanguageSwitcher },
   data() {
     return {
       query: "" as string,

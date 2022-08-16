@@ -5,6 +5,7 @@ import store from "./store";
 import "./axios";
 import "./index.scss";
 import mitt, { Emitter } from "mitt";
+import FlagIcon from "vue-flag-icon";
 
 /* import the fontawesome core */
 import { library } from "@fortawesome/fontawesome-svg-core";
@@ -13,7 +14,7 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
 /* import specific icons */
-import { faUser } from "@fortawesome/free-regular-svg-icons";
+import { faUser, faPenToSquare } from "@fortawesome/free-regular-svg-icons";
 import {
   faArrowUpFromBracket,
   faArrowRightFromBracket,
@@ -35,11 +36,13 @@ library.add(
   faArrowUpFromBracket,
   faArrowRightFromBracket,
   faXmark,
-  faMagnifyingGlass
+  faMagnifyingGlass,
+  faPenToSquare
 );
 
 createApp(App)
   .use(store)
   .use(router)
+  .use(FlagIcon)
   .component("font-awesome-icon", FontAwesomeIcon)
   .mount("#app");
