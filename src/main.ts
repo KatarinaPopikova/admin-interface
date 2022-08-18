@@ -20,6 +20,7 @@ import {
   faArrowRightFromBracket,
   faXmark,
   faMagnifyingGlass,
+  faCheck,
 } from "@fortawesome/free-solid-svg-icons";
 
 declare global {
@@ -37,7 +38,8 @@ library.add(
   faArrowRightFromBracket,
   faXmark,
   faMagnifyingGlass,
-  faPenToSquare
+  faPenToSquare,
+  faCheck
 );
 
 createApp(App)

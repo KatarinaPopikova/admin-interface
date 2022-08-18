@@ -3,20 +3,33 @@
     <div CLASS="flex">
       <img
         src="https://via.placeholder.com/150x100"
-        alt="close button"
+        alt="Post image"
         class="w-80 h-80 object-cover"
       />
-      <div>
-        <p class="ml-3 text-left">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum.
-        </p>
-        <font-awesome-icon icon="fa-regular fa-pen-to-square" />
+      <div class="w-full flex flex-col">
+        <textarea
+          :readonly="!editable"
+          v-bind:class="{
+            'outline-none text-gray-500': !editable,
+            'border-2 border-black': editable,
+          }"
+          class="ml-3 text-left w-full resize-none flex-grow"
+        >
+ Lorem ipsum dolor sit amet, simul tantas oportere est eu. Cu sed tempor tritani intellegam, euismod necessitatibus mei cu, populo democritum definiebas pri id. Mea quas mollis omittam ut. Vis etiam petentium argumentum et, vel cu zril eirmod. Quis suas nihil no est, qui nibh commune cu, duo utinam labores sadipscing at. Nam quando tritani eu, eruditi interesset in eos.
+Id pri dico nostrud menandri, hinc soluta conclusionemque at sed. Eam in qualisque percipitur, delectus sadipscing at has. Sed purto necessitatibus ut, at tritani blandit eam. In ius lucilius intellegebat. Reque offendit theophrastus in mei.
+        </textarea>
+        <font-awesome-icon
+          v-if="!editable"
+          class="self-end pt-2 h-6 w-6 text-main-color-400"
+          icon="fa-regular fa-pen-to-square"
+          @click="handleTextarea"
+        />
+        <font-awesome-icon
+          v-if="editable"
+          class="self-end pt-2 h-6 w-6 text-main-color-400"
+          icon="fa-solid fa-check"
+          @click="handleTextarea"
+        />
       </div>
     </div>
     <div class="p-4">
@@ -67,6 +80,17 @@ import { defineComponent } from "vue";
 
 export default defineComponent({
   name: "ModalCardBody",
+  data() {
+    return {
+      editable: false,
+    };
+  },
+  methods: {
+    handleTextarea() {
+      this.editable = !this.editable;
+      console.log(this.editable);
+    },
+  },
 });
 </script>
 
@@ -74,6 +98,7 @@ export default defineComponent({
 .checkbox-input {
   @apply w-4 h-4 text-blue-600 rounded border-gray-300;
 }
+
 .checkbox-label {
   @apply ml-2 text-sm font-medium text-black;
 }
