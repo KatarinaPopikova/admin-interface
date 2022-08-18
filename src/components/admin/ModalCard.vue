@@ -6,7 +6,7 @@
   >
     <div
       id="modal"
-      class="has-radius rounded-3xl overflow-x-auto flex flex-col justify-between w-screen m-8 h-5/6 bg-white"
+      class="has-radius rounded-3xl overflow-x-auto flex flex-col justify-between w-11/12 m-8 h-5/6 bg-white fixed"
     >
       <header
         id="modal-header"
@@ -24,7 +24,7 @@
       <ModalCardBody />
 
       <!-- Modal Footer -->
-      <footer id="modal-footer" class="px-4 py-6">
+      <footer id="modal-footer" class="px-4 py-6 overflow-y-auto">
         <slot name="footer"></slot>
       </footer>
     </div>
@@ -45,5 +45,4 @@ export default defineComponent({
   },
 });
 </script>
-
 <style scoped></style>
