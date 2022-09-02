@@ -6,6 +6,7 @@ import "./axios";
 import "./index.scss";
 import mitt, { Emitter } from "mitt";
 import FlagIcon from "vue-flag-icon";
+import i18n from "@/locales/i18n";
 
 /* import the fontawesome core */
 import { library } from "@fortawesome/fontawesome-svg-core";
@@ -30,6 +31,19 @@ declare global {
   }
 }
 
+router.beforeEach((to, from, next) => {
+  let language = to.params.lang;
+  const allowedLanguages = ["sk", "en"];
+  if (!language || !allowedLanguages.includes(<string>language)) {
+    language = "sk";
+  }
+
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
+  i18n.global.locale = language;
+  next();
+});
+
 window.eventBus = mitt();
 /* add icons to the library */
 library.add(
@@ -45,6 +59,7 @@ library.add(
 createApp(App)
   .use(store)
   .use(router)
+  .use(i18n)
   .use(FlagIcon)
   .component("font-awesome-icon", FontAwesomeIcon)
   .mount("#app");

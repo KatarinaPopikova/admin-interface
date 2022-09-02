@@ -6,6 +6,7 @@ export default createStore({
     accessToken: null,
     refreshToken: null,
     APIData: "",
+    activeLanguage: "sk",
   },
   mutations: {
     updateStorage(state, { access, refresh }) {
@@ -20,6 +21,9 @@ export default createStore({
   getters: {
     loggedIn(state) {
       return state.accessToken != null;
+    },
+    activeLanguage(state) {
+      return state.activeLanguage;
     },
   },
   actions: {

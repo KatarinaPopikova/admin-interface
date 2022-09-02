@@ -4,7 +4,7 @@
       <img
         src="https://via.placeholder.com/150x100"
         alt="Post image"
-        class="w-80 h-80 object-cover"
+        class="w-80 h-80 object-cover pb-6"
       />
       <div class="w-fit flex flex-col grow min-w-[50%]">
         <textarea

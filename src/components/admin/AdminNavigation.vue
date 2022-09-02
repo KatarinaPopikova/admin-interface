@@ -1,7 +1,9 @@
 <template>
   <nav id="admin-navigation" class="flex items-center justify-between">
-    <router-link to="/" class="pr-3 text-main-color-400 text-2xl"
-      >Infinela</router-link
+    <router-link
+      :to="`/${$i18n.locale}/`"
+      class="pr-3 text-main-color-400 text-2xl"
+      >Infinela {{ $t("hello") }}</router-link
     >
     <div class="flex items-center">
       <div class="search-input">
@@ -13,7 +15,7 @@
             type="text"
             v-model="query"
             @input="search"
-            placeholder="Hľadať..."
+            :placeholder="$t('search')"
           />
         </div>
       </div>
@@ -36,6 +38,7 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import LanguageSwitcher from "@/components/LanguageSwitcher.vue";
+// import i18n from "@/locales/i18n";
 
 export default defineComponent({
   name: "AdminNavigation",

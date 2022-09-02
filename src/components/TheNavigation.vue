@@ -1,8 +1,8 @@
 <template>
   <nav id="navigation">
-    <router-link to="/">Infinela</router-link> |
-    <router-link to="/about">O nás</router-link> |
-    <router-link to="/login">Prihlásenie</router-link>
+    <router-link :to="`/${$i18n.locale}/`">Infinela</router-link> |
+    <router-link :to="`/${$i18n.locale}/about`">O nás</router-link> |
+    <router-link :to="`/${$i18n.locale}/login`">Prihlásenie</router-link>
   </nav>
 </template>
 

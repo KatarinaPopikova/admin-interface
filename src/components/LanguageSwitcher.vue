@@ -9,8 +9,8 @@
       @keydown.up.exact.prevent="startArrowKeys"
       @keydown.down.exact.prevent="startArrowKeys"
     >
-      <flag :iso="`${lang}`" />
-      <span class="ml-2">{{ lang.toUpperCase() }}</span>
+      <flag :iso="flags[`${$i18n.locale}`]" />
+      <span class="ml-2">{{ $i18n.locale.toUpperCase() }}</span>
       <svg
         fill="currentColor"
         xmlns="http://www.w3.org/2000/svg"
@@ -34,7 +34,7 @@
         <li>
           <a
             href="#"
-            @click.prevent="setLocale('gb')"
+            @click.prevent="setLocale('en')"
             ref="account"
             class="flex items-center px-3 py-3 hover:bg-gray-200"
             @keydown.up.exact.prevent=""
@@ -78,6 +78,10 @@ export default defineComponent({
       isVisible: false,
       focusedIndex: 0,
       lang: "sk",
+      flags: {
+        en: "gb",
+        sk: "sk",
+      },
     };
   },
   mixins: [VueClickAway],
@@ -111,7 +115,10 @@ export default defineComponent({
       this.$refs.dropdown.children[this.focusedIndex].children[0].focus();
     },
     setLocale(locale) {
-      this.lang = locale;
+      this.$i18n.locale = locale;
+      this.$router.push({
+        params: { lang: locale },
+      });
       this.hideDropdown();
     },
   },
