@@ -19,41 +19,27 @@
           />
         </div>
       </div>
-      <language-switcher />
-      <button
-        type="button"
-        class="rounded-full bg-white w-12 h-12 p-3 w-max box-border"
-        @click="logOut()"
-        title="Odhlásiť sa"
-      >
-        <font-awesome-icon
-          class="w-5 h-5"
-          icon="fa-solid fa-arrow-right-from-bracket"
-        />
-      </button>
+      <responsive-navbar />
     </div>
   </nav>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import LanguageSwitcher from "@/components/LanguageSwitcher.vue";
+import ResponsiveNavbar from "/src/components/admin/ResponsiveNavbar.vue";
+
 // import i18n from "@/locales/i18n";
 
 export default defineComponent({
   name: "AdminNavigation",
-  components: { LanguageSwitcher },
+  components: { ResponsiveNavbar },
+
   data() {
     return {
       query: "" as string,
     };
   },
   methods: {
-    logOut() {
-      this.$store.dispatch("userLogout").then(() => {
-        this.$router.push({ name: "login" });
-      });
-    },
     search() {
       window.eventBus.emit("filter-posts", this.query);
     },
