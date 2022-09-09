@@ -30,6 +30,7 @@ export default createStore({
     userLogout(context) {
       if (context.getters.loggedIn) {
         localStorage.removeItem("access");
+        localStorage.removeItem("refresh");
         context.commit("destroyToken");
       }
     },
@@ -43,6 +44,7 @@ export default createStore({
           console.log("userLogin-then");
           console.log(response);
           localStorage.setItem("access", response.data.access);
+          localStorage.setItem("refresh", response.data.refresh);
           getAPI.defaults.headers[
             "Authorization"
           ] = `Bearer ${localStorage.getItem("access")}`;
@@ -59,15 +61,37 @@ export default createStore({
     },
     autoLogin(context) {
       console.log("autologin");
-      const userDataString = localStorage.getItem("access");
-      console.log(localStorage.getItem("access"));
-      if (userDataString) {
+      const accessToken = localStorage.getItem("access");
+      const refreshToken = localStorage.getItem("refresh");
+      if (accessToken) {
         context.commit("updateStorage", {
-          access: userDataString,
-          refresh: null,
+          access: accessToken,
+          refresh: refreshToken,
         });
       }
     },
+    async refreshToken(context) {
+      return new Promise((resolve, reject) => {
+        console.log("refresh-token");
+        getAPI
+          .post("/api-token-refresh/", {
+            refresh: localStorage.getItem("refresh"),
+          })
+          .then((response) => {
+            console.log(response);
+            console.log(`Bearer ${response.data.access}`);
+            localStorage.setItem("access", response.data.access);
+            getAPI.defaults.headers[
+              "Authorization"
+            ] = `Bearer ${response.data.access}`;
+            context.dispatch("autoLogin").then(() => resolve(response));
+          })
+          .catch((error) => {
+            reject(error);
+          });
+      });
+    },
   },
+
   modules: {},
 });

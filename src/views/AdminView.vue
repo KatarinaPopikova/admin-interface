@@ -28,14 +28,15 @@ export default defineComponent({
       filteredPosts: [],
     };
   },
-  mounted() {
-    getAPI
+  async mounted() {
+    await getAPI
       .get("/posts/")
       .then((response) => {
         this.posts = response.data;
         this.filteredPosts = response.data;
       })
       .catch((err) => {
+        console.log("admin error");
         console.log(err);
       });
 
