@@ -1,7 +1,7 @@
 <template>
   <div class="relative">
     <button
-      class="flex items-center pr-3 pl-3"
+      class="flex items-center hover:text-main-color-500"
       @click="toggleVisibility"
       @keydown.space.exact.prevent="toggleVisibility"
       @keydown.esc.exact="hideDropdown"
@@ -9,17 +9,10 @@
       @keydown.up.exact.prevent="startArrowKeys"
       @keydown.down.exact.prevent="startArrowKeys"
     >
-      <flag :iso="flags[`${$i18n.locale}`]" />
-      <span class="ml-2">{{ $i18n.locale.toUpperCase() }}</span>
-      <svg
-        fill="currentColor"
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 24"
-        width="24"
-        height="24"
-      >
+      <flag class="fa-xl" :iso="flags[`${$i18n.locale}`]" />
+      <span class="ml-2 font-bold">{{ $i18n.locale.toUpperCase() }}</span>
+      <svg fill="currentColor" viewBox="0 0 24 24" width="24" height="24">
         <path
-          class="heroicon-ui"
           d="M15.3 9.3a1 1 0 0 1 1.4 1.4l-4 4a1 1 0 0 1-1.4 0l-4-4a1 1 0 0 1 1.4-1.4l3.3 3.29 3.3-3.3z"
         ></path>
       </svg>

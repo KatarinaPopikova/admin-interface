@@ -23,6 +23,8 @@ import {
   faMagnifyingGlass,
   faCheck,
   faUserGear,
+  faBars,
+  faArrowLeft,
 } from "@fortawesome/free-solid-svg-icons";
 
 declare global {
@@ -55,7 +57,9 @@ library.add(
   faMagnifyingGlass,
   faPenToSquare,
   faCheck,
-  faUserGear
+  faUserGear,
+  faBars,
+  faArrowLeft
 );
 
 createApp(App)
