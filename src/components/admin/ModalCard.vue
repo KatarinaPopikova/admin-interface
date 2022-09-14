@@ -40,7 +40,7 @@ export default defineComponent({
   components: { ModalCardBody },
   methods: {
     close() {
-      this.$emit("close");
+      this.$emit("closeModal");
     },
   },
 });

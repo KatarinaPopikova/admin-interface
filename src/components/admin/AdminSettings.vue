@@ -1,15 +1,11 @@
 <template>
   <div class="text-left p-5">
     <div>
-      <router-link
-        :to="`/${$i18n.locale}/admin`"
-        class="pr-3 text-main-color-400 hover:text-main-color-500"
-      >
-        <font-awesome-icon
-          icon="fa-solid fa-arrow-left"
-          class="text-main-color-400 hover:text-main-color-500 h-10 w-10"
-        />
-      </router-link>
+      <font-awesome-icon
+        icon="fa-solid fa-arrow-left"
+        @click="openAdminSettings"
+        class="text-main-color-400 hover:text-main-color-500 hover:cursor-pointer h-10 w-10"
+      />
     </div>
     <div>
       <h3>Prihlasovacie údaje</h3>
@@ -27,7 +23,12 @@
 
 <script>
 export default {
-  name: "AdminInfo",
+  name: "AdminSettings",
+  methods: {
+    openAdminSettings() {
+      this.$emit("closeAdminSettings");
+    },
+  },
 };
 </script>
 

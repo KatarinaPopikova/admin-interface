@@ -41,7 +41,7 @@ export default defineComponent({
   },
   methods: {
     showModal() {
-      this.$parent.showModal();
+      this.$emit("showModal");
     },
   },
 });
