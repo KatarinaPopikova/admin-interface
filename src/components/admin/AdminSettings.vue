@@ -42,7 +42,7 @@
             <font-awesome-icon
               v-if="emailEditable"
               class="self-end pl-4 h-5 w-5 text-main-color-400"
-              icon="fa-solid fa-check"
+              icon="fa-solid fa-c heck"
               @click="handleEmailInputArea"
             />
           </label>

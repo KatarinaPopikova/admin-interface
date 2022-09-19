@@ -28,8 +28,6 @@
 import { defineComponent } from "vue";
 import ResponsiveNavbar from "/src/components/admin/ResponsiveNavbar.vue";
 
-// import i18n from "@/locales/i18n";
-
 export default defineComponent({
   name: "AdminNavigation",
   components: { ResponsiveNavbar },
