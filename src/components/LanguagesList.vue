@@ -2,13 +2,25 @@
   <li>
     <a href="#" @click.prevent="setLocale('en')" class="dropdown-element">
       <flag iso="gb" />
-      <span class="ml-2">English</span>
+      <span
+        class="ml-2"
+        v-bind:class="{
+          'underline underline-offset-2': this.$i18n.locale === 'en',
+        }"
+        >English</span
+      >
     </a>
   </li>
   <li>
     <a href="#" @click.prevent="setLocale('sk')" class="dropdown-element">
       <flag iso="sk" />
-      <span class="ml-2">Slovenský</span>
+      <span
+        class="ml-2"
+        v-bind:class="{
+          'underline underline-offset-2': this.$i18n.locale === 'sk',
+        }"
+        >Slovenský</span
+      >
     </a>
   </li>
 </template>
@@ -18,11 +30,6 @@ import { defineComponent } from "vue";
 
 export default defineComponent({
   name: "LanguagesList",
-  data() {
-    return {
-      aa: true,
-    };
-  },
   methods: {
     setLocale(locale) {
       this.$i18n.locale = locale;

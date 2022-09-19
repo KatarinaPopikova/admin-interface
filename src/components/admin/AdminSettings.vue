@@ -18,7 +18,9 @@
         >
           Zmeniť jazyk
         </h3>
-        <LanguageSwitcher v-if="isLanguageSwitcherOpen" />
+        <ul class="font-bold">
+          <LanguagesList v-if="isLanguageSwitcherOpen" />
+        </ul>
       </div>
       <div>
         <h3
@@ -118,11 +120,11 @@
 </template>
 
 <script>
-import LanguageSwitcher from "@/components/LanguageSwitcher";
+import LanguagesList from "@/components/LanguagesList";
 
 export default {
   name: "AdminSettings",
-  components: { LanguageSwitcher },
+  components: { LanguagesList },
   data() {
     return {
       isLanguageSwitcherOpen: false,
