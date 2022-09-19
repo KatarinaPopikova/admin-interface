@@ -31,9 +31,32 @@
           Prihlasovacie údaje
         </h3>
         <div v-if="isLoginDataOpen">
-          <label>E-mail</label>
-          <input :value="this.$store.state.activeLanguage" name="email" />
-          <p>Zmeniť heslo</p>
+          <label>
+            E-mail:
+            <font-awesome-icon
+              v-if="!emailEditable"
+              class="self-end pl-4 h-5 w-5 text-main-color-400"
+              icon="fa-regular fa-pen-to-square"
+              @click="handleEmailInputArea"
+            />
+            <font-awesome-icon
+              v-if="emailEditable"
+              class="self-end pl-4 h-5 w-5 text-main-color-400"
+              icon="fa-solid fa-check"
+              @click="handleEmailInputArea"
+            />
+          </label>
+          <input
+            :value="this.$store.state.activeLanguage"
+            name="email"
+            class="setting-input"
+          />
+
+          <p
+            class="text-lg font-medium underline underline-offset-2 hover:text-main-color-500 hover:cursor-pointer"
+          >
+            Zmeniť heslo
+          </p>
         </div>
       </div>
       <div>
@@ -47,13 +70,43 @@
           Kontaktné údaje
         </h3>
         <div v-if="isContactDataOpen">
-          <label>Tel. kontakt</label>
-          <input value="0934234234" name="phone" />
-          <br />
-          <label>Adresa</label>
+          <label
+            >Tel. kontakt:
+            <font-awesome-icon
+              v-if="!emailEditable"
+              class="self-end pl-4 h-5 w-5 text-main-color-400"
+              icon="fa-regular fa-pen-to-square"
+              @click="handleEmailInputArea" />
+            <font-awesome-icon
+              v-if="emailEditable"
+              class="self-end pl-4 h-5 w-5 text-main-color-400"
+              icon="fa-solid fa-check"
+              @click="handleEmailInputArea"
+          /></label>
+          <input value="0934234234" name="phone" class="setting-input" />
+
+          <label
+            >Adresa:
+            <font-awesome-icon
+              v-if="!emailEditable"
+              class="self-end pl-4 h-5 w-5 text-main-color-400"
+              icon="fa-regular fa-pen-to-square"
+              @click="handleEmailInputArea" />
+            <font-awesome-icon
+              v-if="emailEditable"
+              class="self-end pl-4 h-5 w-5 text-main-color-400"
+              icon="fa-solid fa-check"
+              @click="handleEmailInputArea"
+          /></label>
           <input
-            value="Hlavná 21, 08404 Bratislava, Slovensko"
+            onkeydown="this.style.width = (this.value.length + 2 ) + 'ch';"
+            :value="`Budovatelska 42, 0841 Bratislava, Slovensko`"
+            v-bind:style="{
+              width:
+                `Budovatelska 42, 0841 Bratislava, Slovensko`.length + 2 + 'ch',
+            }"
             name="address"
+            class="setting-input"
           />
         </div>
       </div>
@@ -75,6 +128,7 @@ export default {
       isLanguageSwitcherOpen: false,
       isLoginDataOpen: true,
       isContactDataOpen: false,
+      emailEditable: false,
     };
   },
   methods: {
@@ -86,6 +140,9 @@ export default {
     openAdminSettings() {
       this.$emit("closeAdminSettings");
     },
+    handleEmailInputArea() {
+      this.emailEditable = !this.emailEditable;
+    },
   },
 };
 </script>
@@ -96,5 +153,11 @@ h3 {
 }
 .clickable {
   @apply hover:text-main-color-500 hover:cursor-pointer;
+}
+.setting-input {
+  @apply bg-transparent block pl-4 pb-5;
+}
+label {
+  @apply text-lg font-semibold;
 }
 </style>

@@ -88,7 +88,6 @@ export default defineComponent({
   methods: {
     handleTextarea() {
       this.editable = !this.editable;
-      console.log(this.editable);
     },
   },
 });
