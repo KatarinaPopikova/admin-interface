@@ -51,7 +51,7 @@
             @keydown.esc.exact="hideDropdown"
           >
             <flag iso="sk" />
-            <span class="ml-2">Slovensky</span>
+            <span class="ml-2">Slovenský</span>
           </a>
         </li>
       </ul>
@@ -70,7 +70,6 @@ export default defineComponent({
     return {
       isVisible: false,
       focusedIndex: 0,
-      lang: "sk",
       flags: {
         en: "gb",
         sk: "sk",
