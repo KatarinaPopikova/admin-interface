@@ -9,7 +9,10 @@
   </transition>
   <transition name="slide">
     <div v-if="!isAdminSettingsOpen">
-      <admin-navigation @openAdminSettings="openAdminSettings" />
+      <admin-navigation
+        @showLogOutPermission="showLogOutPermission"
+        @openAdminSettings="openAdminSettings"
+      />
       <div
         class="container mx-auto grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 p-6 gap-8"
       >

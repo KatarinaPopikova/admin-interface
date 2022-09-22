@@ -23,7 +23,7 @@
       </transition>
       <font-awesome-icon
         class="w-6 h-6 hover:text-main-color-500 hover:cursor-pointer"
-        @click="logOut()"
+        @click="showLogOutPermission()"
         icon="fa-solid fa-arrow-right-from-bracket"
       />
     </div>
@@ -39,10 +39,8 @@ export default defineComponent({
   name: "ResponsiveNavbar",
   components: { LanguageSwitcher },
   methods: {
-    logOut() {
-      this.$store.dispatch("userLogout").then(() => {
-        this.$router.push({ name: "login" });
-      });
+    showLogOutPermission() {
+      this.$parent.$emit("showLogOutPermission");
     },
 
     openAdminSettings() {
