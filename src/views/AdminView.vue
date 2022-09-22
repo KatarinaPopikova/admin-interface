@@ -1,23 +1,35 @@
 <template>
   <transition name="slide">
-    <div v-if="isOpen" class="w-full min-h-screen">
-      <AdminSettings @closeAdminSettings="closeAdminSettings" />
+    <div v-if="isAdminSettingsOpen" class="w-full min-h-screen">
+      <AdminSettings
+        @closeAdminSettings="closeAdminSettings"
+        @showLogOutPermission="showLogOutPermission"
+      />
     </div>
   </transition>
   <transition name="slide">
-    <div v-if="!isOpen">
+    <div v-if="!isAdminSettingsOpen">
       <admin-navigation @openAdminSettings="openAdminSettings" />
       <div
         class="container mx-auto grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 p-6 gap-8"
       >
         <div v-for="post in filteredPosts" :key="post.id">
-          <info-card @showModal="showModal" :post="post" />
+          <info-card @showCardModal="showCardModal" :post="post" />
         </div>
       </div>
 
-      <ModalCard v-show="isModalVisible" @closeModal="closeModal"></ModalCard>
+      <ModalCard
+        v-show="isCardModalVisible"
+        @closeCardModal="closeCardModal"
+      ></ModalCard>
     </div>
   </transition>
+  <div>
+    <LogOutModal
+      v-if="openLogOutModal"
+      @closeLogOutModal="closeLogOutPermission"
+    />
+  </div>
 </template>
 
 <script lang="ts">
@@ -27,14 +39,22 @@ import AdminNavigation from "@/components/admin/AdminNavigation.vue";
 import AdminSettings from "@/components/admin/AdminSettings.vue";
 import InfoCard from "@/components/admin/InfoCard.vue";
 import ModalCard from "@/components/admin/ModalCard.vue";
+import LogOutModal from "@/components/admin/LogOutModal.vue";
 
 export default defineComponent({
   name: "AdminView",
-  components: { AdminNavigation, InfoCard, ModalCard, AdminSettings },
+  components: {
+    AdminNavigation,
+    InfoCard,
+    ModalCard,
+    AdminSettings,
+    LogOutModal,
+  },
   data() {
     return {
-      isModalVisible: false,
-      isOpen: false,
+      openLogOutModal: false,
+      isCardModalVisible: false,
+      isAdminSettingsOpen: false,
       posts: [],
       filteredPosts: [],
     };
@@ -62,17 +82,24 @@ export default defineComponent({
     });
   },
   methods: {
-    showModal() {
-      this.isModalVisible = true;
+    showLogOutPermission() {
+      console.log("show");
+      this.openLogOutModal = true;
     },
-    closeModal() {
-      this.isModalVisible = false;
+    closeLogOutPermission() {
+      this.openLogOutModal = false;
+    },
+    showCardModal() {
+      this.isCardModalVisible = true;
+    },
+    closeCardModal() {
+      this.isCardModalVisible = false;
     },
     openAdminSettings() {
-      this.isOpen = true;
+      this.isAdminSettingsOpen = true;
     },
     closeAdminSettings() {
-      this.isOpen = false;
+      this.isAdminSettingsOpen = false;
     },
   },
 });

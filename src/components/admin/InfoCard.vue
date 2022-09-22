@@ -41,7 +41,7 @@ export default defineComponent({
   },
   methods: {
     showModal() {
-      this.$emit("showModal");
+      this.$emit("showCardModal");
     },
   },
 });

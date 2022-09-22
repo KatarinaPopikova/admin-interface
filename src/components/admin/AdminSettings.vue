@@ -113,7 +113,7 @@
         </div>
       </div>
       <div>
-        <h3 @click="logOut()" class="clickable">Odhlásiť sa</h3>
+        <h3 @click="showLogOutPermission()" class="clickable">Odhlásiť sa</h3>
       </div>
     </div>
   </div>
@@ -134,10 +134,8 @@ export default {
     };
   },
   methods: {
-    logOut() {
-      this.$store.dispatch("userLogout").then(() => {
-        this.$router.push({ name: "login" });
-      });
+    showLogOutPermission() {
+      this.$emit("showLogOutPermission");
     },
     openAdminSettings() {
       this.$emit("closeAdminSettings");
