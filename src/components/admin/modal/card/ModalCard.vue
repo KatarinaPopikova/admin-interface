@@ -8,7 +8,7 @@
       id="modal"
       class="has-radius rounded-3xl overflow-x-auto flex flex-col justify-between w-11/12 m-8 h-5/6 bg-white fixed"
     >
-      <modal-header @close="close" />
+      <modal-header @close="close" :modalTitle="`Some title`" />
 
       <modal-card-body />
 
