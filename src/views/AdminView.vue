@@ -1,7 +1,7 @@
 <template>
   <transition name="slide">
     <div v-if="isAdminSettingsOpen" class="w-full min-h-screen">
-      <AdminSettings
+      <admin-settings
         @closeAdminSettings="closeAdminSettings"
         @showLogOutPermission="showLogOutPermission"
       />
@@ -21,14 +21,14 @@
         </div>
       </div>
 
-      <ModalCard
+      <modal-card
         v-show="isCardModalVisible"
         @closeCardModal="closeCardModal"
-      ></ModalCard>
+      ></modal-card>
     </div>
   </transition>
   <div>
-    <LogOutModal
+    <modal-log-out
       v-if="openLogOutModal"
       @closeLogOutModal="closeLogOutPermission"
     />
@@ -41,8 +41,8 @@ import { defineComponent } from "vue";
 import AdminNavigation from "@/components/admin/AdminNavigation.vue";
 import AdminSettings from "@/components/admin/AdminSettings.vue";
 import InfoCard from "@/components/admin/InfoCard.vue";
-import ModalCard from "@/components/admin/ModalCard.vue";
-import LogOutModal from "@/components/admin/LogOutModal.vue";
+import ModalCard from "@/components/admin/modal/card/ModalCard.vue";
+import ModalLogOut from "@/components/admin/modal/logOut/ModalLogOut.vue";
 
 export default defineComponent({
   name: "AdminView",
@@ -51,7 +51,7 @@ export default defineComponent({
     InfoCard,
     ModalCard,
     AdminSettings,
-    LogOutModal,
+    ModalLogOut,
   },
   data() {
     return {
@@ -86,7 +86,6 @@ export default defineComponent({
   },
   methods: {
     showLogOutPermission() {
-      console.log("show");
       this.openLogOutModal = true;
     },
     closeLogOutPermission() {
