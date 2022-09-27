@@ -1,5 +1,7 @@
 import { createStore } from "vuex";
-import { getAPI } from "@/axios";
+import { Api } from "@/apis/axios";
+
+import activity from "./modules/activity";
 
 export default createStore({
   state: {
@@ -35,17 +37,16 @@ export default createStore({
       }
     },
     async userLogin(context, userCredentials): Promise<void> {
-      await getAPI
-        .post("api-token/", {
-          username: userCredentials.username,
-          password: userCredentials.password,
-        })
+      await Api.post("api-token/", {
+        username: userCredentials.username,
+        password: userCredentials.password,
+      })
         .then((response) => {
           console.log("userLogin-then");
           console.log(response);
           localStorage.setItem("access", response.data.access);
           localStorage.setItem("refresh", response.data.refresh);
-          getAPI.defaults.headers[
+          Api.defaults.headers[
             "Authorization"
           ] = `Bearer ${localStorage.getItem("access")}`;
           context.commit("updateStorage", {
@@ -73,15 +74,14 @@ export default createStore({
     async refreshToken(context) {
       return new Promise((resolve, reject) => {
         console.log("refresh-token");
-        getAPI
-          .post("/api-token-refresh/", {
-            refresh: localStorage.getItem("refresh"),
-          })
+        Api.post("/api-token-refresh/", {
+          refresh: localStorage.getItem("refresh"),
+        })
           .then((response) => {
             console.log(response);
             console.log(`Bearer ${response.data.access}`);
             localStorage.setItem("access", response.data.access);
-            getAPI.defaults.headers[
+            Api.defaults.headers[
               "Authorization"
             ] = `Bearer ${response.data.access}`;
             context.dispatch("autoLogin").then(() => resolve(response));
@@ -93,5 +93,7 @@ export default createStore({
     },
   },
 
-  modules: {},
+  modules: {
+    activity,
+  },
 });

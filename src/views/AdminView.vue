@@ -36,7 +36,7 @@
 </template>
 
 <script lang="ts">
-import { getAPI } from "@/axios";
+import { Api } from "@/apis/axios";
 import { defineComponent } from "vue";
 import AdminNavigation from "@/components/admin/AdminNavigation.vue";
 import AdminSettings from "@/components/admin/AdminSettings.vue";
@@ -63,8 +63,7 @@ export default defineComponent({
     };
   },
   async mounted() {
-    await getAPI
-      .get("/posts/")
+    await Api.get("/posts/")
       .then((response) => {
         this.posts = response.data;
         this.filteredPosts = response.data;
