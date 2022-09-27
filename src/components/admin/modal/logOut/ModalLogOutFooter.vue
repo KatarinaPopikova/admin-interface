@@ -2,7 +2,7 @@
   <footer class="p-4 overflow-y-auto flex justify-end">
     <button
       @click="logOut"
-      class="font-bold px-4 py-2 m-2 has-radius rounded-md bg-main-color-400 hover:bg-main-color-500"
+      class="font-medium px-4 py-2 m-2 has-radius rounded-md bg-main-color-400 hover:bg-main-color-500"
     >
       Odhlásiť
     </button>
