@@ -1,4 +1,4 @@
-import Activity from "../../../apis/activity";
+import Activity from "../../../api/activity";
 
 export const getProducts = ({ commit }) => {
   Activity.all().then((response) => {

@@ -1,3 +1,5 @@
-export const activitiesCount = (state) => {
-  return state.activities.length;
+export const activitiesFilter = (state) => (filterText) => {
+  return state.activities.filter((activity) => {
+    return activity.title.match(filterText);
+  });
 };

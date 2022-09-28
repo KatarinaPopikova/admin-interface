@@ -16,8 +16,8 @@
       <div
         class="container mx-auto grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 p-6 gap-8"
       >
-        <div v-for="post in filteredPosts" :key="post.id">
-          <info-card @showCardModal="showCardModal" :post="post" />
+        <div v-for="activity in this.activities" :key="activity.id">
+          <info-card @showCardModal="showCardModal" :post="activity" />
         </div>
       </div>
 
@@ -36,8 +36,8 @@
 </template>
 
 <script lang="ts">
-import { Api } from "@/apis/axios";
 import { defineComponent } from "vue";
+import { mapState, mapActions, mapGetters } from "vuex";
 import AdminNavigation from "@/components/admin/AdminNavigation.vue";
 import AdminSettings from "@/components/admin/AdminSettings.vue";
 import InfoCard from "@/components/admin/InfoCard.vue";
@@ -58,32 +58,25 @@ export default defineComponent({
       openLogOutModal: false,
       isCardModalVisible: false,
       isAdminSettingsOpen: false,
-      posts: [],
-      filteredPosts: [],
     };
   },
-  async mounted() {
-    await Api.get("/posts/")
-      .then((response) => {
-        this.posts = response.data;
-        this.filteredPosts = response.data;
-      })
-      .catch((err) => {
-        console.log("admin error");
-        console.log(err);
-      });
+  computed: {
+    ...mapState("activity", ["activities"]),
+    ...mapGetters("activity", ["activitiesFilter"]),
+  },
+
+  mounted() {
+    this.getActivities();
 
     window.eventBus.on("filter-posts", (filterText) => {
-      if (filterText === "") {
-        this.filteredPosts = this.posts;
-      } else {
-        this.filteredPosts = this.posts.filter((post) => {
-          return post.title.match(filterText);
-        });
+      if (filterText !== "") {
+        console.log(this.activitiesFilter(filterText));
       }
     });
   },
   methods: {
+    ...mapActions("activity", ["getActivities"]),
+
     showLogOutPermission() {
       this.openLogOutModal = true;
     },
@@ -111,18 +104,22 @@ export default defineComponent({
 .slide-leave-active {
   transition: all 0.75s ease-out;
 }
+
 .slide-enter-to {
   position: absolute;
   right: 0;
 }
+
 .slide-enter-from {
   position: absolute;
   right: -100%;
 }
+
 .slide-leave-to {
   position: absolute;
   left: -100%;
 }
+
 .slide-leave-from {
   position: absolute;
   left: 0;

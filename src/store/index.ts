@@ -1,6 +1,5 @@
 import { createStore } from "vuex";
-import { Api } from "@/apis/axios";
-
+import { Api } from "@/api/axios";
 import activity from "./modules/activity";
 
 export default createStore({

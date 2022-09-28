@@ -1,13 +1,13 @@
-import Activity from "../../../apis/activity";
+import Activity from "../../../api/activity";
 
-export const getProducts = ({ commit }) => {
+export const getActivities = ({ commit }) => {
   Activity.all().then((response) => {
-    commit("SET_PRODUCTS", response.data);
+    commit("SET_ACTIVITIES", response.data);
   });
 };
 
-export const getProduct = ({ commit }, productId) => {
+export const getActivity = ({ commit }, productId) => {
   Activity.delete(productId).then((response) => {
-    commit("SET_PRODUCT", response.data);
+    commit("SET_ACTIVITY", response.data);
   });
 };
