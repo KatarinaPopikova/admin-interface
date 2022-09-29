@@ -33,23 +33,13 @@
           Prihlasovacie údaje
         </h3>
         <div v-if="isLoginDataOpen">
-          <label>
-            E-mail:
-            <font-awesome-icon
-              v-if="!emailEditable"
-              class="self-end pl-4 h-5 w-5 text-main-color-400"
-              icon="fa-regular fa-pen-to-square"
-              @click="handleEmailInputArea"
-            />
-            <font-awesome-icon
-              v-if="emailEditable"
-              class="self-end pl-4 h-5 w-5 text-main-color-400"
-              icon="fa-solid fa-c heck"
-              @click="handleEmailInputArea"
-            />
-          </label>
-          <input :value="this.email" name="email" class="setting-input" />
-
+          <editable-value
+            :inputData="{
+              value: this.email,
+              label: `E-mail:`,
+              inputName: `email`,
+            }"
+          />
           <p
             class="text-lg font-medium underline underline-offset-2 hover:text-main-color-500 hover:cursor-pointer"
           >
@@ -68,43 +58,20 @@
           Kontaktné údaje
         </h3>
         <div v-if="isContactDataOpen">
-          <label
-            >Tel. kontakt:
-            <font-awesome-icon
-              v-if="!emailEditable"
-              class="self-end pl-4 h-5 w-5 text-main-color-400"
-              icon="fa-regular fa-pen-to-square"
-              @click="handleEmailInputArea" />
-            <font-awesome-icon
-              v-if="emailEditable"
-              class="self-end pl-4 h-5 w-5 text-main-color-400"
-              icon="fa-solid fa-check"
-              @click="handleEmailInputArea"
-          /></label>
-          <input :value="this.phone" name="phone" class="setting-input" />
-
-          <label
-            >Adresa:
-            <font-awesome-icon
-              v-if="!emailEditable"
-              class="self-end pl-4 h-5 w-5 text-main-color-400"
-              icon="fa-regular fa-pen-to-square"
-              @click="handleEmailInputArea" />
-            <font-awesome-icon
-              v-if="emailEditable"
-              class="self-end pl-4 h-5 w-5 text-main-color-400"
-              icon="fa-solid fa-check"
-              @click="handleEmailInputArea"
-          /></label>
-          <input
-            onkeydown="this.style.width = (this.value.length + 2 ) + 'ch';"
-            :value="this.address"
-            v-bind:style="{
-              width:
-                `Budovatelska 42, 0841 Bratislava, Slovensko`.length + 2 + 'ch',
+          <editable-value
+            :inputData="{
+              value: this.phone,
+              label: `Tel. č.:`,
+              inputName: `phone`,
             }"
-            name="address"
-            class="setting-input"
+          />
+
+          <editable-value
+            :inputData="{
+              value: this.address,
+              label: `Adresa:`,
+              inputName: `address`,
+            }"
           />
         </div>
       </div>
@@ -115,13 +82,15 @@
   </div>
 </template>
 
-<script>
-import LanguagesList from "@/components/LanguagesList";
+<script lang="ts">
+import LanguagesList from "@/components/LanguagesList.vue";
+import EditableValue from "@/components/admin/EditableValue.vue";
 import { mapActions, mapState } from "vuex";
+import { defineComponent } from "vue";
 
-export default {
+export default defineComponent({
   name: "AdminSettings",
-  components: { LanguagesList },
+  components: { LanguagesList, EditableValue },
 
   data() {
     return {
@@ -149,11 +118,8 @@ export default {
     openAdminSettings() {
       this.$emit("closeAdminSettings");
     },
-    handleEmailInputArea() {
-      this.emailEditable = !this.emailEditable;
-    },
   },
-};
+});
 </script>
 
 <style scoped>
@@ -162,11 +128,5 @@ h3 {
 }
 .clickable {
   @apply hover:text-main-color-500 hover:cursor-pointer;
-}
-.setting-input {
-  @apply bg-transparent block pl-4 pb-5;
-}
-label {
-  @apply text-lg font-semibold;
 }
 </style>
