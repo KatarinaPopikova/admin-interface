@@ -1,6 +1,7 @@
 import { createStore } from "vuex";
 import { Api } from "@/api/axios";
 import activity from "./modules/activity";
+import admin from "./modules/admin";
 
 export default createStore({
   state: {
@@ -94,5 +95,6 @@ export default createStore({
 
   modules: {
     activity,
+    admin,
   },
 });

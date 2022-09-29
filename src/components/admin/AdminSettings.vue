@@ -48,11 +48,7 @@
               @click="handleEmailInputArea"
             />
           </label>
-          <input
-            :value="this.$store.state.activeLanguage"
-            name="email"
-            class="setting-input"
-          />
+          <input :value="this.email" name="email" class="setting-input" />
 
           <p
             class="text-lg font-medium underline underline-offset-2 hover:text-main-color-500 hover:cursor-pointer"
@@ -85,7 +81,7 @@
               icon="fa-solid fa-check"
               @click="handleEmailInputArea"
           /></label>
-          <input value="0934234234" name="phone" class="setting-input" />
+          <input :value="this.phone" name="phone" class="setting-input" />
 
           <label
             >Adresa:
@@ -102,7 +98,7 @@
           /></label>
           <input
             onkeydown="this.style.width = (this.value.length + 2 ) + 'ch';"
-            :value="`Budovatelska 42, 0841 Bratislava, Slovensko`"
+            :value="this.address"
             v-bind:style="{
               width:
                 `Budovatelska 42, 0841 Bratislava, Slovensko`.length + 2 + 'ch',
@@ -121,10 +117,12 @@
 
 <script>
 import LanguagesList from "@/components/LanguagesList";
+import { mapActions, mapState } from "vuex";
 
 export default {
   name: "AdminSettings",
   components: { LanguagesList },
+
   data() {
     return {
       isLanguageSwitcherOpen: false,
@@ -133,7 +131,18 @@ export default {
       emailEditable: false,
     };
   },
+
+  computed: {
+    ...mapState("admin", ["email", "phone", "address"]),
+  },
+
+  mounted() {
+    this.getUserDetail();
+  },
+
   methods: {
+    ...mapActions("admin", ["getUserDetail"]),
+
     showLogOutPermission() {
       this.$emit("showLogOutPermission");
     },

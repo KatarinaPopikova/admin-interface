@@ -1,7 +1,7 @@
-import User from "../../../api/user";
+import User from "../../../api/admin";
 
 export const getUserDetail = ({ commit }) => {
   User.detail().then((response) => {
-    commit("SET_USER", response.data);
+    commit("SET_USER", response);
   });
 };
