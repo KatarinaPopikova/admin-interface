@@ -124,7 +124,7 @@ export default defineComponent({
 
 <style scoped>
 h3 {
-  @apply text-2xl text-center;
+  @apply text-2xl text-center max-w-sm m-auto;
 }
 .clickable {
   @apply hover:text-main-color-500 hover:cursor-pointer;

@@ -3,12 +3,12 @@
     {{ inputData.label }}
     <font-awesome-icon
       v-if="!editable"
-      class="self-end pl-4 h-5 w-5 text-main-color-400"
+      class="input-manager-icon"
       icon="fa-regular fa-pen-to-square"
       @click="handleInputArea" />
     <font-awesome-icon
       v-if="editable"
-      class="self-end pl-4 h-5 w-5 text-main-color-400"
+      class="input-manager-icon"
       icon="fa-solid fa-check"
       @click="handleInputArea"
   /></label>
@@ -52,4 +52,8 @@ export default defineComponent({
 });
 </script>
 
-<style scoped></style>
+<style scoped>
+.input-manager-icon {
+  @apply self-end pl-4 h-5 w-5 text-main-color-400 hover:text-main-color-500 hover:cursor-pointer;
+}
+</style>
