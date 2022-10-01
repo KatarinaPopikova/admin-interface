@@ -39,6 +39,7 @@
               label: `E-mail:`,
               inputName: `email`,
             }"
+            @change-value="(mail) => this.changeEmail(mail)"
           />
           <p
             class="text-lg font-medium underline underline-offset-2 hover:text-main-color-500 hover:cursor-pointer"
@@ -64,6 +65,7 @@
               label: `Tel. č.:`,
               inputName: `phone`,
             }"
+            @change-value="(phone) => this.changePhone(phone)"
           />
 
           <editable-value
@@ -72,6 +74,7 @@
               label: `Adresa:`,
               inputName: `address`,
             }"
+            @change-value="(address) => this.changeAddress(address)"
           />
         </div>
       </div>
@@ -110,7 +113,12 @@ export default defineComponent({
   },
 
   methods: {
-    ...mapActions("admin", ["getUserDetail"]),
+    ...mapActions("admin", [
+      "getUserDetail",
+      "changeEmail",
+      "changePhone",
+      "changeAddress",
+    ]),
 
     showLogOutPermission() {
       this.$emit("showLogOutPermission");

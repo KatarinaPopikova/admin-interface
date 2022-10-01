@@ -8,7 +8,6 @@ export default {
         if (response.status != 200) {
           throw response.status;
         } else {
-          console.log(response.data[0]);
           return response.data[0];
         }
       });

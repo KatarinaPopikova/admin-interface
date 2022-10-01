@@ -5,3 +5,15 @@ export const getUserDetail = ({ commit }) => {
     commit("SET_USER", response);
   });
 };
+
+export const changeEmail = ({ commit }, email) => {
+  commit("SET_EMAIL", email);
+};
+
+export const changePhone = ({ commit }, phone) => {
+  commit("SET_PHONE", phone);
+};
+
+export const changeAddress = ({ commit }, address) => {
+  commit("SET_ADDRESS", address);
+};

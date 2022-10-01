@@ -10,3 +10,15 @@ export const SET_USER = (state, user) => {
     " " +
     user.address.city;
 };
+
+export const SET_EMAIL = (state, email) => {
+  state.email = email;
+};
+
+export const SET_PHONE = (state, phone) => {
+  state.phone = phone;
+};
+
+export const SET_ADDRESS = (state, address) => {
+  state.address = address;
+};

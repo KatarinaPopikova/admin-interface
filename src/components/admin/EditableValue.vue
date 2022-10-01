@@ -14,7 +14,7 @@
   /></label>
   <input
     :value="inputData.value"
-    :readonly="!editable"
+    @change="$emit('change-value', $event.target.value)"
     onkeydown="this.style.width = (this.value.length + 2 ) + 'ch';"
     v-bind:style="{
       width: inputData.value.length + 1 + 'ch',
@@ -23,6 +23,7 @@
       'outline-none text-gray-500': !editable,
       'border-2 border-black': editable,
     }"
+    :readonly="!editable"
     :name="inputData.inputName"
     class="bg-transparent block ml-4 pl-1.5 p-0.5 mb-5 rounded-lg"
   />
@@ -33,11 +34,14 @@ import { defineComponent } from "vue";
 
 export default defineComponent({
   name: "EditableValue",
+
   props: {
     inputData: {
       type: Object,
     },
   },
+  emits: ["change-value"],
+
   data() {
     return {
       editable: false,
