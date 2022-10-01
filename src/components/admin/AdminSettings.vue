@@ -39,7 +39,9 @@
               label: `E-mail:`,
               inputName: `email`,
             }"
-            @change-value="(mail) => this.changeEmail(mail)"
+            @edit-value="(mail) => this.changeEmail(mail)"
+            @save-edited-value="this.saveNewEmail()"
+            @open-save-modal="isSaveModalOpen = true"
           />
           <p
             class="text-lg font-medium underline underline-offset-2 hover:text-main-color-500 hover:cursor-pointer"
@@ -65,7 +67,9 @@
               label: `Tel. č.:`,
               inputName: `phone`,
             }"
-            @change-value="(phone) => this.changePhone(phone)"
+            @edit-value="(phone) => this.changePhone(phone)"
+            @save-edited-value="this.saveNewPhone()"
+            @open-save-modal="isSaveModalOpen = true"
           />
 
           <editable-value
@@ -74,7 +78,9 @@
               label: `Adresa:`,
               inputName: `address`,
             }"
-            @change-value="(address) => this.changeAddress(address)"
+            @edit-value="(address) => this.changeAddress(address)"
+            @save-edited-value="(address) => this.changeAddress(address)"
+            @open-save-modal="isSaveModalOpen = true"
           />
         </div>
       </div>
@@ -83,24 +89,32 @@
       </div>
     </div>
   </div>
+
+  <div>
+    <modal-save-values
+      v-if="isSaveModalOpen"
+      @closeLogOutModal="isSaveModalOpen = false"
+    />
+  </div>
 </template>
 
 <script lang="ts">
 import LanguagesList from "@/components/LanguagesList.vue";
 import EditableValue from "@/components/admin/EditableValue.vue";
+import ModalSaveValues from "@/components/admin/modal/saveValues/ModalSaveValues.vue";
 import { mapActions, mapState } from "vuex";
 import { defineComponent } from "vue";
 
 export default defineComponent({
   name: "AdminSettings",
-  components: { LanguagesList, EditableValue },
+  components: { LanguagesList, EditableValue, ModalSaveValues },
 
   data() {
     return {
       isLanguageSwitcherOpen: false,
       isLoginDataOpen: true,
       isContactDataOpen: false,
-      emailEditable: false,
+      isSaveModalOpen: false,
     };
   },
 
@@ -118,6 +132,8 @@ export default defineComponent({
       "changeEmail",
       "changePhone",
       "changeAddress",
+      "saveNewEmail",
+      "saveNewPhone",
     ]),
 
     showLogOutPermission() {

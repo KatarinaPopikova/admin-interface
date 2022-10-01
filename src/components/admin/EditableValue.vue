@@ -5,16 +5,16 @@
       v-if="!editable"
       class="input-manager-icon"
       icon="fa-regular fa-pen-to-square"
-      @click="handleInputArea" />
+      @click="startEditInputArea" />
     <font-awesome-icon
       v-if="editable"
       class="input-manager-icon"
       icon="fa-solid fa-check"
-      @click="handleInputArea"
+      @click="saveEditedInputArea"
   /></label>
   <input
     :value="inputData.value"
-    @change="$emit('change-value', $event.target.value)"
+    @change="editValue($event.target.value)"
     onkeydown="this.style.width = (this.value.length + 2 ) + 'ch';"
     v-bind:style="{
       width: inputData.value.length + 1 + 'ch',
@@ -47,10 +47,20 @@ export default defineComponent({
       editable: false,
     };
   },
-
+  beforeUnmount() {
+    console.log("unmount");
+    this.$emit("open-save-modal");
+  },
   methods: {
-    handleInputArea() {
-      this.editable = !this.editable;
+    startEditInputArea() {
+      this.editable = true;
+    },
+    saveEditedInputArea() {
+      this.editable = false;
+      this.$emit("save-edited-value");
+    },
+    editValue(editedValue) {
+      this.$emit("edit-value", editedValue);
     },
   },
 });

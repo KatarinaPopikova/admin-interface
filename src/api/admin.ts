@@ -1,4 +1,7 @@
 import axios from "axios";
+import { Api } from "@/api/axios";
+
+const END_POINT = "user/";
 
 export default {
   detail() {
@@ -11,5 +14,8 @@ export default {
           return response.data[0];
         }
       });
+  },
+  store(data) {
+    return Api.post(END_POINT, data);
   },
 };
