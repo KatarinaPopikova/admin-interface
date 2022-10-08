@@ -2,7 +2,7 @@
   <transition name="slide">
     <div v-if="isAdminSettingsOpen" class="w-full min-h-screen">
       <admin-settings
-        @closeAdminSettings="closeAdminSettings"
+        @close-admin-settings="closeAdminSettings"
         @showLogOutPermission="showLogOutPermission"
       />
     </div>

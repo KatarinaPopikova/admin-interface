@@ -1,17 +1,17 @@
 <template>
   <div
     id="modal-backdrop"
-    @click.self="close"
+    @click.self="close(false)"
     class="fixed inset-0 bg-opacity-20 bg-gray-800 flex justify-center items-center"
   >
     <div
       id="modal"
       class="has-radius rounded-2xl overflow-x-auto flex flex-col justify-between w-80 m-8 min-h-48 bg-white fixed"
     >
-      <modal-header @close="close" />
+      <modal-header @close="close(false)" />
 
       <modal-save-values-body />
-      <modal-save-values-footer @close="close" />
+      <modal-save-values-footer @close="close(true)" />
     </div>
   </div>
 </template>
@@ -26,8 +26,8 @@ export default defineComponent({
   name: "ModalLogOut",
   components: { ModalSaveValuesFooter, ModalSaveValuesBody, ModalHeader },
   methods: {
-    close() {
-      this.$emit("closeLogOutModal");
+    close(isDecisionMade) {
+      this.$emit("make-decision", isDecisionMade);
     },
   },
 });

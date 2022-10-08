@@ -21,12 +21,22 @@ export const saveAllNewData = ({ commit, state }) => {
   // User.store(state.email).then((response) => {
   //   commit("SET_USER", response);
   // });
-  console.log("all");
 
   commit("SET_USER", {
     email: state.email,
     phone: state.phone,
     address: state.address,
+  });
+};
+export const refreshAllNewData = ({ commit, state }) => {
+  // User.store(state.email).then((response) => {
+  //   commit("SET_USER", response);
+  // });
+
+  commit("SET_USER", {
+    email: state.originalEmail,
+    phone: state.originalPhone,
+    address: state.originalAddress,
   });
 };
 

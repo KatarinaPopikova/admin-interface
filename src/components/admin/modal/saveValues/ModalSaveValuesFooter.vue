@@ -6,7 +6,9 @@
     >
       Uložiť
     </button>
-    <button @click="close" class="underline text-sm">Nie, ďakujem</button>
+    <button @click="refreshAllData" class="underline text-sm">
+      Nie, ďakujem
+    </button>
   </footer>
 </template>
 
@@ -17,12 +19,16 @@ import { mapActions } from "vuex";
 export default defineComponent({
   name: "ModalLogOutFooter",
   methods: {
-    ...mapActions("admin", ["saveAllNewData"]),
+    ...mapActions("admin", ["saveAllNewData", "refreshAllNewData"]),
     close() {
       this.$emit("close");
     },
     saveAllData() {
       this.saveAllNewData();
+      this.close();
+    },
+    refreshAllData() {
+      this.refreshAllNewData();
       this.close();
     },
   },

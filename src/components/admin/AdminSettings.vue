@@ -91,10 +91,7 @@
   </div>
 
   <div>
-    <modal-save-values
-      v-if="isSaveModalOpen"
-      @closeLogOutModal="isSaveModalOpen = false"
-    />
+    <modal-save-values v-if="isSaveModalOpen" @make-decision="makeDecision" />
   </div>
 </template>
 
@@ -115,6 +112,7 @@ export default defineComponent({
       isLoginDataOpen: true,
       isContactDataOpen: false,
       isSaveModalOpen: false,
+      isCloseAdminSettingsActive: false,
     };
   },
 
@@ -142,13 +140,24 @@ export default defineComponent({
       this.$emit("showLogOutPermission");
     },
     closeAdminSettings() {
-      this.handleSaveModal();
-      this.$emit("closeAdminSettings");
+      if (this.isStateChanged()) {
+        this.isSaveModalOpen = true;
+        this.isCloseAdminSettingsActive = true;
+      } else {
+        this.$emit("close-admin-settings");
+      }
     },
     handleSaveModal() {
       if (this.isStateChanged()) {
         this.isSaveModalOpen = true;
       }
+    },
+    makeDecision(isDecisionMade) {
+      if (isDecisionMade && this.isCloseAdminSettingsActive) {
+        this.$emit("close-admin-settings");
+      }
+      this.isCloseAdminSettingsActive = false;
+      this.isSaveModalOpen = false;
     },
   },
 });
@@ -162,5 +171,3 @@ h3 {
   @apply hover:text-main-color-500 hover:cursor-pointer;
 }
 </style>
-
-//daj modal okno mimo Admin Settings !!! potom to pekne pojde :)
