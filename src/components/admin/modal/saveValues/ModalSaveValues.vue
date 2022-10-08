@@ -10,21 +10,21 @@
     >
       <modal-header @close="close" />
 
-      <modal-log-out-body @close="close" />
-      <modal-log-out-footer @close="close" />
+      <modal-save-values-body />
+      <modal-save-values-footer @close="close" />
     </div>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import ModalLogOutBody from "@/components/admin/modal/logOut/ModalLogOutBody.vue";
+import ModalSaveValuesBody from "@/components/admin/modal/saveValues/ModalSaveValuesBody.vue";
 import ModalHeader from "@/components/admin/modal/ModalHeader.vue";
-import ModalLogOutFooter from "@/components/admin/modal/logOut/ModalLogOutFooter.vue";
+import ModalSaveValuesFooter from "@/components/admin/modal/saveValues/ModalSaveValuesFooter.vue";
 
 export default defineComponent({
   name: "ModalLogOut",
-  components: { ModalLogOutFooter, ModalLogOutBody, ModalHeader },
+  components: { ModalSaveValuesFooter, ModalSaveValuesBody, ModalHeader },
   methods: {
     close() {
       this.$emit("closeLogOutModal");

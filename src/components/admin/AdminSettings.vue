@@ -3,7 +3,7 @@
     <div>
       <font-awesome-icon
         icon="fa-solid fa-arrow-left"
-        @click="openAdminSettings"
+        @click="closeAdminSettings"
         class="text-center text-main-color-400 hover:text-main-color-500 hover:cursor-pointer h-10 w-10"
       />
     </div>
@@ -41,7 +41,7 @@
             }"
             @edit-value="(mail) => this.changeEmail(mail)"
             @save-edited-value="this.saveNewEmail()"
-            @open-save-modal="isSaveModalOpen = true"
+            @open-save-modal="handleSaveModal"
           />
           <p
             class="text-lg font-medium underline underline-offset-2 hover:text-main-color-500 hover:cursor-pointer"
@@ -69,7 +69,7 @@
             }"
             @edit-value="(phone) => this.changePhone(phone)"
             @save-edited-value="this.saveNewPhone()"
-            @open-save-modal="isSaveModalOpen = true"
+            @open-save-modal="handleSaveModal"
           />
 
           <editable-value
@@ -80,7 +80,7 @@
             }"
             @edit-value="(address) => this.changeAddress(address)"
             @save-edited-value="(address) => this.changeAddress(address)"
-            @open-save-modal="isSaveModalOpen = true"
+            @open-save-modal="handleSaveModal"
           />
         </div>
       </div>
@@ -102,7 +102,7 @@
 import LanguagesList from "@/components/LanguagesList.vue";
 import EditableValue from "@/components/admin/EditableValue.vue";
 import ModalSaveValues from "@/components/admin/modal/saveValues/ModalSaveValues.vue";
-import { mapActions, mapState } from "vuex";
+import { mapActions, mapState, mapGetters } from "vuex";
 import { defineComponent } from "vue";
 
 export default defineComponent({
@@ -136,11 +136,19 @@ export default defineComponent({
       "saveNewPhone",
     ]),
 
+    ...mapGetters("admin", ["isStateChanged"]),
+
     showLogOutPermission() {
       this.$emit("showLogOutPermission");
     },
-    openAdminSettings() {
+    closeAdminSettings() {
+      this.handleSaveModal();
       this.$emit("closeAdminSettings");
+    },
+    handleSaveModal() {
+      if (this.isStateChanged()) {
+        this.isSaveModalOpen = true;
+      }
     },
   },
 });
@@ -154,3 +162,5 @@ h3 {
   @apply hover:text-main-color-500 hover:cursor-pointer;
 }
 </style>
+
+//daj modal okno mimo Admin Settings !!! potom to pekne pojde :)

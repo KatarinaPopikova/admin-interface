@@ -17,6 +17,19 @@ export const getUserDetail = ({ commit }) => {
   });
 };
 
+export const saveAllNewData = ({ commit, state }) => {
+  // User.store(state.email).then((response) => {
+  //   commit("SET_USER", response);
+  // });
+  console.log("all");
+
+  commit("SET_USER", {
+    email: state.email,
+    phone: state.phone,
+    address: state.address,
+  });
+};
+
 export const saveNewEmail = ({ commit, state }) => {
   // User.store(state.email).then((response) => {
   //   commit("SET_USER", response);
