@@ -53,14 +53,24 @@ export const saveNewEmail = ({ commit, state }) => {
 };
 
 export const saveNewPhone = ({ commit, state }) => {
-  // User.store(state.email).then((response) => {
+  // User.store(state.phone).then((response) => {
   //   commit("SET_USER", response);
   // });
-  console.log(state);
   commit("SET_USER", {
     email: state.originalEmail,
     phone: state.phone,
     address: state.originalAddress,
+  });
+};
+
+export const saveNewAddress = ({ commit, state }) => {
+  // User.store(state.address).then((response) => {
+  //   commit("SET_USER", response);
+  // });
+  commit("SET_USER", {
+    email: state.originalEmail,
+    phone: state.originalPhone,
+    address: state.address,
   });
 };
 

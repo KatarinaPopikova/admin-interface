@@ -39,7 +39,7 @@
               label: `E-mail:`,
               inputName: `email`,
             }"
-            @edit-value="(mail) => this.changeEmail(mail)"
+            @edit-value="(newEmail) => this.changeEmail(newEmail)"
             @save-edited-value="this.saveNewEmail()"
             @open-save-modal="handleSaveModal"
           />
@@ -67,7 +67,7 @@
               label: `Tel. č.:`,
               inputName: `phone`,
             }"
-            @edit-value="(phone) => this.changePhone(phone)"
+            @edit-value="(newPhone) => this.changePhone(newPhone)"
             @save-edited-value="this.saveNewPhone()"
             @open-save-modal="handleSaveModal"
           />
@@ -78,8 +78,8 @@
               label: `Adresa:`,
               inputName: `address`,
             }"
-            @edit-value="(address) => this.changeAddress(address)"
-            @save-edited-value="(address) => this.changeAddress(address)"
+            @edit-value="(newAddress) => this.changeAddress(newAddress)"
+            @save-edited-value="this.saveNewAddress()"
             @open-save-modal="handleSaveModal"
           />
         </div>
@@ -132,6 +132,7 @@ export default defineComponent({
       "changeAddress",
       "saveNewEmail",
       "saveNewPhone",
+      "saveNewAddress",
     ]),
 
     ...mapGetters("admin", ["isStateChanged"]),
