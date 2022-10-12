@@ -9,14 +9,14 @@ export const SET_USER = (state, user) => {
   state.originalAddress = user.address;
 };
 
-export const SET_EMAIL = (state, email) => {
+export const SET_EMAIL = (state, email = state.originalEmail) => {
   state.email = email;
 };
 
-export const SET_PHONE = (state, phone) => {
+export const SET_PHONE = (state, phone = state.originalPhone) => {
   state.phone = phone;
 };
 
-export const SET_ADDRESS = (state, address) => {
+export const SET_ADDRESS = (state, address = state.originalAddress) => {
   state.address = address;
 };

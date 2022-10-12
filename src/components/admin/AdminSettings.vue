@@ -35,12 +35,13 @@
         <div v-if="isLoginDataOpen">
           <editable-value
             :inputData="{
-              value: this.email,
+              value: email,
               label: `E-mail:`,
               inputName: `email`,
             }"
-            @edit-value="(newEmail) => this.changeEmail(newEmail)"
-            @save-edited-value="this.saveNewEmail()"
+            @edit-value="(newEmail) => changeEmail(newEmail)"
+            @save-edited-value="saveNewEmail"
+            @restore-edited-value="restoreEmail"
             @open-save-modal="handleSaveModal"
           />
           <p
@@ -63,23 +64,25 @@
         <div v-if="isContactDataOpen">
           <editable-value
             :inputData="{
-              value: this.phone,
+              value: phone,
               label: `Tel. č.:`,
               inputName: `phone`,
             }"
-            @edit-value="(newPhone) => this.changePhone(newPhone)"
-            @save-edited-value="this.saveNewPhone()"
+            @edit-value="(newPhone) => changePhone(newPhone)"
+            @save-edited-value="saveNewPhone"
+            @restore-edited-value="restorePhone"
             @open-save-modal="handleSaveModal"
           />
 
           <editable-value
             :inputData="{
-              value: this.address,
+              value: address,
               label: `Adresa:`,
               inputName: `address`,
             }"
-            @edit-value="(newAddress) => this.changeAddress(newAddress)"
-            @save-edited-value="this.saveNewAddress()"
+            @edit-value="(newAddress) => changeAddress(newAddress)"
+            @save-edited-value="saveNewAddress"
+            @restore-edited-value="restoreAddress"
             @open-save-modal="handleSaveModal"
           />
         </div>
@@ -133,6 +136,9 @@ export default defineComponent({
       "saveNewEmail",
       "saveNewPhone",
       "saveNewAddress",
+      "restoreEmail",
+      "restorePhone",
+      "restoreAddress",
     ]),
 
     ...mapGetters("admin", ["isStateChanged"]),

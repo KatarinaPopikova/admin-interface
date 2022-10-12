@@ -2,16 +2,25 @@
   <label class="text-lg font-semibold">
     {{ inputData.label }}
     <font-awesome-icon
+      icon="fa-regular fa-pen-to-square"
       v-if="!editable"
       class="input-manager-icon"
-      icon="fa-regular fa-pen-to-square"
-      @click="startEditInputArea" />
+      @click="startEditInputArea"
+    />
     <font-awesome-icon
+      icon="fa-solid fa-check"
       v-if="editable"
       class="input-manager-icon"
-      icon="fa-solid fa-check"
       @click="saveEditedInputArea"
-  /></label>
+    />
+
+    <font-awesome-icon
+      icon="fa-solid fa-xmark"
+      v-if="editable"
+      class="input-manager-icon"
+      @click="restoreEditedInputArea"
+    />
+  </label>
   <input
     :value="inputData.value"
     @change="editValue($event.target.value)"
@@ -48,7 +57,6 @@ export default defineComponent({
     };
   },
   beforeUnmount() {
-    console.log("unmount");
     this.$emit("open-save-modal");
   },
   methods: {
@@ -58,6 +66,10 @@ export default defineComponent({
     saveEditedInputArea() {
       this.editable = false;
       this.$emit("save-edited-value");
+    },
+    restoreEditedInputArea() {
+      this.editable = false;
+      this.$emit("restore-edited-value");
     },
     editValue(editedValue) {
       this.$emit("edit-value", editedValue);

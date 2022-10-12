@@ -85,3 +85,15 @@ export const changePhone = ({ commit }, phone) => {
 export const changeAddress = ({ commit }, address) => {
   commit("SET_ADDRESS", address);
 };
+
+export const restoreEmail = ({ commit }) => {
+  commit("SET_EMAIL");
+};
+
+export const restorePhone = ({ commit }) => {
+  commit("SET_PHONE");
+};
+
+export const restoreAddress = ({ commit }) => {
+  commit("SET_ADDRESS");
+};
