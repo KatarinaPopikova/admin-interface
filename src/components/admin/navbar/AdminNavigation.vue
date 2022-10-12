@@ -26,7 +26,7 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import ResponsiveNavbar from "/src/components/admin/ResponsiveNavbar.vue";
+import ResponsiveNavbar from "/src/components/admin/navbar/ResponsiveNavbar.vue";
 
 export default defineComponent({
   name: "AdminNavigation",

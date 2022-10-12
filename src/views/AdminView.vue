@@ -41,10 +41,10 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import { mapState, mapActions, mapGetters } from "vuex";
-import AdminNavigation from "@/components/admin/AdminNavigation.vue";
-import SubNavigationOverview from "@/components/admin/SubNavigationOverview.vue";
-import AdminSettings from "@/components/admin/AdminSettings.vue";
-import InfoCard from "@/components/admin/InfoCard.vue";
+import AdminNavigation from "@/components/admin/navbar/AdminNavigation.vue";
+import SubNavigationOverview from "@/components/admin/overview/SubNavigationOverview.vue";
+import AdminSettings from "@/components/admin/navbar/AdminSettings.vue";
+import InfoCard from "@/components/admin/overview/activity/InfoCard.vue";
 import ModalCard from "@/components/admin/modal/card/ModalCard.vue";
 import ModalLogOut from "@/components/admin/modal/logOut/ModalLogOut.vue";
 
