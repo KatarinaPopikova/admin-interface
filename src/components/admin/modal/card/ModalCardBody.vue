@@ -1,5 +1,5 @@
 <template>
-  <section id="modal-body" class="px-4 py-6 overflow-y-auto">
+  <section id="modal-body" class="px-4 py-6 mr-3 overflow-y-auto">
     <div CLASS="flex flex-wrap w-full">
       <img
         src="https://via.placeholder.com/150x100"

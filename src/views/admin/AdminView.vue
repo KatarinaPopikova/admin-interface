@@ -15,11 +15,6 @@
       />
 
       <router-view />
-
-      <modal-card
-        v-show="isCardModalVisible"
-        @closeCardModal="closeCardModal"
-      ></modal-card>
     </div>
   </transition>
   <div>
@@ -34,14 +29,12 @@
 import { defineComponent } from "vue";
 import AdminNavigation from "@/components/admin/navbar/AdminNavigation.vue";
 import AdminSettings from "@/components/admin/navbar/AdminSettings.vue";
-import ModalCard from "@/components/admin/modal/card/ModalCard.vue";
 import ModalLogOut from "@/components/admin/modal/logOut/ModalLogOut.vue";
 
 export default defineComponent({
   name: "AdminView",
   components: {
     AdminNavigation,
-    ModalCard,
     AdminSettings,
     ModalLogOut,
   },
