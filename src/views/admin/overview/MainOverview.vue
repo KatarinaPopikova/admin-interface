@@ -1,12 +1,11 @@
 <template>
   <sub-navigation-overview />
-  <p>main-overview</p>
   <router-view />
 </template>
 
-<script>
+<script lang="ts">
 import { defineComponent } from "vue";
-import SubNavigationOverview from "@/components/admin/overview/SubNavigationOverview.vue";
+import SubNavigationOverview from "@/components/admin/view/overview/SubNavigationOverview.vue";
 
 export default defineComponent({
   name: "MainOverview",

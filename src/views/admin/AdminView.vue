@@ -43,7 +43,7 @@ import { defineComponent } from "vue";
 import { mapState, mapActions, mapGetters } from "vuex";
 import AdminNavigation from "@/components/admin/navbar/AdminNavigation.vue";
 import AdminSettings from "@/components/admin/navbar/AdminSettings.vue";
-import InfoCard from "@/components/admin/overview/activity/InfoCard.vue";
+import InfoCard from "@/components/admin/view/overview/activity/InfoCard.vue";
 import ModalCard from "@/components/admin/modal/card/ModalCard.vue";
 import ModalLogOut from "@/components/admin/modal/logOut/ModalLogOut.vue";
 

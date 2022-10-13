@@ -59,7 +59,7 @@ const routes: Array<RouteRecordRaw> = [
             ],
           },
           {
-            path: "detail",
+            path: ":id",
             name: "detail",
             component: MainDetailView,
             children: [
