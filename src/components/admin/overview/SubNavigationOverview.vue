@@ -1,7 +1,12 @@
 <template>
   <nav>
-    <router-link :to="`/${$i18n.locale}/`">Activities</router-link> |
-    <router-link :to="`/${$i18n.locale}/about`">Summaries</router-link> |
+    <router-link :to="`/${$i18n.locale}/admin/overview/activity`"
+      >Activities</router-link
+    >
+    |
+    <router-link :to="`/${$i18n.locale}/admin/overview/summary`"
+      >Summaries</router-link
+    >
   </nav>
 </template>
 

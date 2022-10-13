@@ -14,8 +14,6 @@
         @openAdminSettings="openAdminSettings"
       />
 
-      <sub-navigation-overview />
-
       <div
         class="container mx-auto grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 p-6 gap-8"
       >
@@ -36,13 +34,14 @@
       @closeLogOutModal="closeLogOutPermission"
     />
   </div>
+
+  <router-view />
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
 import { mapState, mapActions, mapGetters } from "vuex";
 import AdminNavigation from "@/components/admin/navbar/AdminNavigation.vue";
-import SubNavigationOverview from "@/components/admin/overview/SubNavigationOverview.vue";
 import AdminSettings from "@/components/admin/navbar/AdminSettings.vue";
 import InfoCard from "@/components/admin/overview/activity/InfoCard.vue";
 import ModalCard from "@/components/admin/modal/card/ModalCard.vue";
@@ -56,7 +55,6 @@ export default defineComponent({
     ModalCard,
     AdminSettings,
     ModalLogOut,
-    SubNavigationOverview,
   },
   data() {
     return {
