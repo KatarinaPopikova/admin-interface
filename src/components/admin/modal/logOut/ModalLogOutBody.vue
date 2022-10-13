@@ -1,5 +1,5 @@
 <template>
-  <p class="text-2xl">Skutočne odhlásiť?</p>
+  <p class="text-2xl text-center">Skutočne odhlásiť?</p>
 </template>
 
 <script lang="ts">

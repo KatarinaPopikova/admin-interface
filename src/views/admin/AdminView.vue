@@ -14,13 +14,7 @@
         @openAdminSettings="openAdminSettings"
       />
 
-      <div
-        class="container mx-auto grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 p-6 gap-8"
-      >
-        <div v-for="activity in this.activities" :key="activity.id">
-          <info-card @showCardModal="showCardModal" :post="activity" />
-        </div>
-      </div>
+      <router-view />
 
       <modal-card
         v-show="isCardModalVisible"
@@ -34,16 +28,12 @@
       @closeLogOutModal="closeLogOutPermission"
     />
   </div>
-
-  <router-view />
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import { mapState, mapActions, mapGetters } from "vuex";
 import AdminNavigation from "@/components/admin/navbar/AdminNavigation.vue";
 import AdminSettings from "@/components/admin/navbar/AdminSettings.vue";
-import InfoCard from "@/components/admin/view/overview/activity/InfoCard.vue";
 import ModalCard from "@/components/admin/modal/card/ModalCard.vue";
 import ModalLogOut from "@/components/admin/modal/logOut/ModalLogOut.vue";
 
@@ -51,7 +41,6 @@ export default defineComponent({
   name: "AdminView",
   components: {
     AdminNavigation,
-    InfoCard,
     ModalCard,
     AdminSettings,
     ModalLogOut,
@@ -63,32 +52,15 @@ export default defineComponent({
       isAdminSettingsOpen: false,
     };
   },
-  computed: {
-    ...mapState("activity", ["activities"]),
-    ...mapGetters("activity", ["activitiesFilter"]),
-  },
 
-  mounted() {
-    this.getActivities();
-
-    window.eventBus.on("filter-posts", (filterText) => {
-      if (filterText !== "") {
-        console.log(this.activitiesFilter(filterText));
-      }
-    });
-  },
   methods: {
-    ...mapActions("activity", ["getActivities"]),
-
     showLogOutPermission() {
       this.openLogOutModal = true;
     },
     closeLogOutPermission() {
       this.openLogOutModal = false;
     },
-    showCardModal() {
-      this.isCardModalVisible = true;
-    },
+
     closeCardModal() {
       this.isCardModalVisible = false;
     },

@@ -1,5 +1,5 @@
 <template>
-  <p class="text-2xl">Uložiť zmeny?</p>
+  <p class="text-2xl text-center">Uložiť zmeny?</p>
 </template>
 
 <script lang="ts">

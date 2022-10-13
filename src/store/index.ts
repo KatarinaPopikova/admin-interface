@@ -37,14 +37,10 @@ export default createStore({
       }
     },
     async userLogin(context, userCredentials): Promise<void> {
-      await Api.post(
-        "api-token/",
-        {
-          username: userCredentials.username,
-          password: userCredentials.password,
-        },
-        { withCredentials: true }
-      )
+      await Api.post("api-token/", {
+        username: userCredentials.username,
+        password: userCredentials.password,
+      })
         .then((response) => {
           console.log("userLogin-then");
           console.log(response);

@@ -3,7 +3,7 @@
     <router-link
       :to="`/${$i18n.locale}/`"
       class="pr-3 text-main-color-400 text-2xl"
-      >Infinela {{ $t("hello") }}</router-link
+      >Kamačo {{ $t("hello") }}</router-link
     >
     <div class="flex items-center">
       <div class="search-input">

@@ -1,4 +1,5 @@
-export interface Post {
+export interface Activity {
+  id: number;
   title: string;
   content: string;
 }

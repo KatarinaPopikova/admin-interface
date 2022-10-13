@@ -1,5 +1,5 @@
 <template>
-  <p>ActivityView</p>
+  <p>Act detail</p>
 </template>
 
 <script lang="ts">
