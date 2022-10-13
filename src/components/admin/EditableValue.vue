@@ -3,12 +3,14 @@
     {{ inputData.label }}
     <font-awesome-icon
       icon="fa-regular fa-pen-to-square"
+      title="Edit"
       v-if="!editable"
       class="input-manager-icon"
       @click="startEditInputArea"
     />
     <font-awesome-icon
       icon="fa-solid fa-check"
+      title="Save"
       v-if="editable"
       class="input-manager-icon"
       @click="saveEditedInputArea"
@@ -16,6 +18,7 @@
 
     <font-awesome-icon
       icon="fa-solid fa-xmark"
+      title="Do not save"
       v-if="editable"
       class="input-manager-icon"
       @click="restoreEditedInputArea"

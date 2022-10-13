@@ -3,6 +3,7 @@
     <button
       class="flex items-center hover:text-main-color-500"
       @click="toggleVisibility"
+      title="Language"
     >
       <flag class="fa-xl" :iso="flags[`${$i18n.locale}`]" />
       <span class="ml-2 font-bold">{{ $i18n.locale.toUpperCase() }}</span>

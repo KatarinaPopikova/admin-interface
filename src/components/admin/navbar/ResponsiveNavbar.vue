@@ -17,6 +17,7 @@
       <transition name="slide">
         <font-awesome-icon
           icon="fa-solid fa-user-gear"
+          title="Admin Settings"
           @click="openAdminSettings"
           class="w-7 h-7 pl-3 pr-4 hover:text-main-color-500 hover:cursor-pointer"
         />
@@ -25,6 +26,7 @@
         class="w-6 h-6 hover:text-main-color-500 hover:cursor-pointer"
         @click="showLogOutPermission()"
         icon="fa-solid fa-arrow-right-from-bracket"
+        title="LogOut"
       />
     </div>
   </div>
