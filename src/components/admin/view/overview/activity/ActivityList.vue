@@ -3,7 +3,7 @@
     class="container mx-auto grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 p-6 gap-8"
   >
     <div v-for="activity in this.activities" :key="activity.id">
-      <activity-card @showCardModal="showCardModal" :post="activity" />
+      <activity-card :post="activity" />
     </div>
   </div>
 </template>

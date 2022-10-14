@@ -79,7 +79,7 @@ Id pri dico nostrud menandri, hinc soluta conclusionemque at sed. Eam in qualisq
 import { defineComponent } from "vue";
 
 export default defineComponent({
-  name: "ModalCardBody",
+  name: "ActivityDetailInfo",
   data() {
     return {
       editable: false,
