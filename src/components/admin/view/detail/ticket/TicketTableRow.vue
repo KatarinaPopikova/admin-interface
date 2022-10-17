@@ -14,7 +14,7 @@
         class="bg-transparent block ml-4 pl-1.5 p-0.5 rounded-lg"
       />
     </td>
-    <td class="py-3 text-left whitespace-nowrap">
+    <td class="py-3 whitespace-nowrap float-right">
       <input
         :value="`${price}`"
         @change="editEmail($event.target.value)"
@@ -25,7 +25,7 @@
         }"
         :readonly="!editable"
         :name="price"
-        class="bg-transparent block ml-4 pl-1.5 p-0.5 rounded-lg"
+        class="bg-transparent block ml-4 pl-1.5 p-0.5 rounded-lg text-right"
       />
     </td>
 

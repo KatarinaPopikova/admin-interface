@@ -1,4 +1,7 @@
 <template>
+  <header class="m-8 font-bold text-2xl">
+    <h1>Activity name</h1>
+  </header>
   <ticket-table />
 </template>
 
