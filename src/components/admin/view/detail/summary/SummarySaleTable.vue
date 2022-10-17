@@ -8,8 +8,8 @@
           <table class="min-w-max w-full table-auto">
             <thead>
               <tr class="bg-gray-200">
-                <th colspan="3" class="py-3 px-6 text-left rounded-t-md">
-                  Emails
+                <th colspan="4" class="py-3 px-6 text-left rounded-t-md">
+                  Sales
                 </th>
               </tr>
             </thead>
@@ -18,7 +18,10 @@
                 class="even:bg-gray-50"
                 v-for="index in 5"
                 :key="index"
+                date="10.10.2022"
                 email="example@email.com"
+                paid="Paid"
+                price="100.00€"
                 @edit-value="(newPhone) => console.log(newPhone)"
                 @save-edited-value="console.log(saveNewPhone)"
                 @restore-edited-value="console.log(restorePhone)"
