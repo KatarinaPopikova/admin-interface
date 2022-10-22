@@ -17,7 +17,7 @@ import { defineComponent } from "vue";
 import { mapActions } from "vuex";
 
 export default defineComponent({
-  name: "ModalLogOutFooter",
+  name: "ModalSaveValuesFooter",
   methods: {
     ...mapActions("admin", ["saveAllNewData", "refreshAllNewData"]),
     close() {

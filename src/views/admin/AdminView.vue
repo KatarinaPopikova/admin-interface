@@ -7,16 +7,19 @@
       />
     </div>
   </transition>
-  <transition name="slide">
-    <div v-if="!isAdminSettingsOpen">
-      <admin-navigation
-        @showLogOutPermission="showLogOutPermission"
-        @openAdminSettings="openAdminSettings"
-      />
 
-      <router-view />
-    </div>
-  </transition>
+  <router-view v-slot="{ Component }">
+    <transition name="slide">
+      <div v-if="!isAdminSettingsOpen">
+        <admin-navigation
+          @showLogOutPermission="showLogOutPermission"
+          @openAdminSettings="openAdminSettings"
+        />
+
+        <component :is="Component" />
+      </div>
+    </transition>
+  </router-view>
   <div>
     <modal-log-out
       v-if="openLogOutModal"
@@ -29,7 +32,7 @@
 import { defineComponent } from "vue";
 import AdminNavigation from "@/components/admin/navbar/AdminNavigation.vue";
 import AdminSettings from "@/components/admin/navbar/AdminSettings.vue";
-import ModalLogOut from "@/components/admin/modal/logOut/ModalLogOut.vue";
+import ModalLogOut from "@/components/admin/modal/log-out/ModalLogOut.vue";
 
 export default defineComponent({
   name: "AdminView",

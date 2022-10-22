@@ -1,10 +1,11 @@
 <template>
-  <tr class="border-b border-gray-200 hover:bg-gray-100">
+  <tr class="border-b border-gray-200 hover:bg-gray-100 hover:cursor-pointer">
     <td class="py-3 text-left whitespace-nowrap">
       <input
         :value="`${date}`"
         @change="editEmail($event.target.value)"
         onkeydown="this.style.width = (this.value.length + 2 ) + 'ch';"
+        v-bind:style="{ width: date.length + 1 + 'ch' }"
         v-bind:class="{
           'outline-none text-gray-500': !editable,
           'border-2 border-black': editable,
@@ -19,6 +20,7 @@
         :value="`${email}`"
         @change="editEmail($event.target.value)"
         onkeydown="this.style.width = (this.value.length + 2 ) + 'ch';"
+        v-bind:style="{ width: email.length + 1 + 'ch' }"
         v-bind:class="{
           'outline-none text-gray-500': !editable,
           'border-2 border-black': editable,
@@ -33,6 +35,7 @@
         :value="`${paid}`"
         @change="editEmail($event.target.value)"
         onkeydown="this.style.width = (this.value.length + 2 ) + 'ch';"
+        v-bind:style="{ width: paid.length + 1 + 'ch' }"
         v-bind:class="{
           'outline-none text-gray-500': !editable,
           'border-2 border-black': editable,
@@ -47,6 +50,7 @@
         :value="`${price}`"
         @change="editEmail($event.target.value)"
         onkeydown="this.style.width = (this.value.length + 2 ) + 'ch';"
+        v-bind:style="{ width: price.length + 1 + 'ch' }"
         v-bind:class="{
           'outline-none text-gray-500': !editable,
           'border-2 border-black': editable,

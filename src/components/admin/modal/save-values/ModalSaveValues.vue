@@ -18,12 +18,12 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import ModalSaveValuesBody from "@/components/admin/modal/saveValues/ModalSaveValuesBody.vue";
+import ModalSaveValuesBody from "@/components/admin/modal/save-values/ModalSaveValuesBody.vue";
 import ModalHeader from "@/components/admin/modal/ModalHeader.vue";
-import ModalSaveValuesFooter from "@/components/admin/modal/saveValues/ModalSaveValuesFooter.vue";
+import ModalSaveValuesFooter from "@/components/admin/modal/save-values/ModalSaveValuesFooter.vue";
 
 export default defineComponent({
-  name: "ModalLogOut",
+  name: "ModalSaveValues",
   components: { ModalSaveValuesFooter, ModalSaveValuesBody, ModalHeader },
   methods: {
     close(isDecisionMade) {

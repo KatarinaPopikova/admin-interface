@@ -1,7 +1,7 @@
 <template>
-  <div class="overflow-x-auto">
+  <div class="overflow-x-auto mx-auto">
     <div
-      class="min-w-screen min-h-screen bg-gray-100 flex items-center justify-center bg-gray-100 overflow-hidden m-3"
+      class="max-w-screen-3xl bg-gray-100 flex items-center justify-center bg-gray-100 overflow-hidden m-3"
     >
       <div class="w-full lg:w-5/6">
         <div class="bg-white shadow-md my-6 rounded-md">

@@ -101,7 +101,7 @@
 <script lang="ts">
 import LanguagesList from "@/components/LanguagesList.vue";
 import EditableValue from "@/components/admin/EditableValue.vue";
-import ModalSaveValues from "@/components/admin/modal/saveValues/ModalSaveValues.vue";
+import ModalSaveValues from "@/components/admin/modal/save-values/ModalSaveValues.vue";
 import { mapActions, mapState, mapGetters } from "vuex";
 import { defineComponent } from "vue";
 

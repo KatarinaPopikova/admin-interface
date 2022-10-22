@@ -29,7 +29,7 @@
     @change="editValue($event.target.value)"
     onkeydown="this.style.width = (this.value.length + 2 ) + 'ch';"
     v-bind:style="{
-      width: inputData.value.length + 1 + 'ch',
+      width: inputData.value.length + 2 + 'ch',
     }"
     v-bind:class="{
       'outline-none text-gray-500': !editable,

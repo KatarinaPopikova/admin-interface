@@ -1,7 +1,7 @@
 <template>
-  <div class="overflow-x-auto">
+  <div class="overflow-x-auto mx-auto">
     <div
-      class="min-w-screen min-h-screen bg-gray-100 flex items-center justify-center bg-gray-100 overflow-hidden m-3"
+      class="max-w-screen-3xl bg-gray-100 flex items-center justify-center bg-gray-100 overflow-hidden m-3"
     >
       <div class="w-full lg:w-5/6">
         <div class="bg-white shadow-md my-6 rounded-md">
@@ -26,6 +26,7 @@
                 @save-edited-value="console.log(saveNewPhone)"
                 @restore-edited-value="console.log(restorePhone)"
                 @open-save-modal="console.log(handleSaveModal)"
+                @click="openSaleInfoModal"
               />
             </tbody>
           </table>
@@ -33,14 +34,34 @@
       </div>
     </div>
   </div>
+
+  <div>
+    <modal-sale-info v-if="isSaleInfoModalOpen" @close="closeSaleInfoModal" />
+  </div>
 </template>
 
 <script>
 import SummarySaleTableRow from "@/components/admin/view/detail/summary/SummarySaleTableRow";
+import ModalSaleInfo from "@/components/admin/modal/sale-information/ModalSaleInfo";
 export default {
   name: "SummarySaleTable",
   components: {
+    ModalSaleInfo,
     SummarySaleTableRow,
+  },
+  data() {
+    return {
+      isSaleInfoModalOpen: false,
+    };
+  },
+
+  methods: {
+    openSaleInfoModal() {
+      this.isSaleInfoModalOpen = true;
+    },
+    closeSaleInfoModal() {
+      this.isSaleInfoModalOpen = false;
+    },
   },
 };
 </script>

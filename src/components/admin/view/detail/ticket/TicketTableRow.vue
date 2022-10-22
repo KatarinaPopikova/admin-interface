@@ -5,6 +5,7 @@
         :value="`${ticketName}`"
         @change="editEmail($event.target.value)"
         onkeydown="this.style.width = (this.value.length + 2 ) + 'ch';"
+        v-bind:style="{ width: ticketName.length + 1 + 'ch' }"
         v-bind:class="{
           'outline-none text-gray-500': !editable,
           'border-2 border-black': editable,
@@ -19,6 +20,7 @@
         :value="`${price}`"
         @change="editEmail($event.target.value)"
         onkeydown="this.style.width = (this.value.length + 2 ) + 'ch';"
+        v-bind:style="{ width: price.length + 1 + 'ch' }"
         v-bind:class="{
           'outline-none text-gray-500': !editable,
           'border-2 border-black': editable,

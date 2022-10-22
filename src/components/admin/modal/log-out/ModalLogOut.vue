@@ -18,9 +18,9 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import ModalLogOutBody from "@/components/admin/modal/logOut/ModalLogOutBody.vue";
+import ModalLogOutBody from "@/components/admin/modal/log-out/ModalLogOutBody.vue";
 import ModalHeader from "@/components/admin/modal/ModalHeader.vue";
-import ModalLogOutFooter from "@/components/admin/modal/logOut/ModalLogOutFooter.vue";
+import ModalLogOutFooter from "@/components/admin/modal/log-out/ModalLogOutFooter.vue";
 
 export default defineComponent({
   name: "ModalLogOut",

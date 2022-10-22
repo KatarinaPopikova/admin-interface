@@ -38,6 +38,7 @@ const routes: Array<RouteRecordRaw> = [
         children: [
           {
             path: "",
+            name: "adminToOverview",
             redirect: `/${i18n.global.locale}/admin/overview`,
           },
           {
