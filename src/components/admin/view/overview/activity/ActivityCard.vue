@@ -12,7 +12,9 @@
         />
       </div>
       <div class="card-body">
-        <h4 class="font-semibold text-center">{{ post.title }}</h4>
+        <h4 class="font-semibold text-center">
+          {{ post.title }} {{ $t("hello") }}
+        </h4>
         <p class="px-5 py-2">
           {{ post.content }}
         </p>

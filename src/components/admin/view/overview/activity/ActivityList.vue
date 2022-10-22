@@ -22,7 +22,7 @@ export default defineComponent({
     ...mapGetters("activity", ["activitiesFilter"]),
   },
   mounted() {
-    this.getActivities();
+    // this.getActivities();
 
     window.eventBus.on("filter-posts", (filterText) => {
       if (filterText !== "") {

@@ -14,6 +14,11 @@ export default defineComponent({
   components: {
     ActivityDetail,
   },
+  data() {
+    return {
+      isActivitySubNav: false,
+    };
+  },
 });
 </script>
 

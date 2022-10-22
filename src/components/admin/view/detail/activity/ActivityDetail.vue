@@ -14,6 +14,7 @@ export default defineComponent({
   components: { ActivityDetailInfo, ActivityEmailTable },
   mounted() {
     this.getActivities();
+    window.eventBus.emit("change-breadcrumbs", false); //this.query
   },
   methods: {
     ...mapActions("activity", ["getActivities"]),

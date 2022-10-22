@@ -64,6 +64,7 @@ export default defineComponent({
   },
   methods: {
     async doLogin(): Promise<void> {
+      console.log(this.username, this.password);
       this.$store
         .dispatch("userLogin", {
           username: this.username,

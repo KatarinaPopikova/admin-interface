@@ -3,22 +3,22 @@
     <router-link
       :to="`/${$i18n.locale}/`"
       class="pr-3 text-main-color-400 text-2xl"
-      >Kamačo {{ $t("hello") }}</router-link
+      >Kamačo</router-link
     >
     <div class="flex items-center">
-      <div class="search-input">
-        <div class="flex items-center">
-          <div class="absolute inset-y-0 left-0 flex items-center pl-4">
-            <font-awesome-icon icon="fa-solid fa-magnifying-glass" />
-          </div>
-          <input
-            type="text"
-            v-model="query"
-            @input="search"
-            :placeholder="$t('search')"
-          />
-        </div>
-      </div>
+      <!--      <div class="search-input">-->
+      <!--        <div class="flex items-center">-->
+      <!--          <div class="absolute inset-y-0 left-0 flex items-center pl-4">-->
+      <!--            <font-awesome-icon icon="fa-solid fa-magnifying-glass" />-->
+      <!--          </div>-->
+      <!--          <input-->
+      <!--            type="text"-->
+      <!--            v-model="query"-->
+      <!--            @input="search"-->
+      <!--            :placeholder="$t('search')"-->
+      <!--          />-->
+      <!--        </div>-->
+      <!--      </div>-->
       <responsive-navbar />
     </div>
   </nav>
@@ -46,9 +46,9 @@ export default defineComponent({
 </script>
 
 <style scoped>
-.search-input {
-  @apply overflow-hidden w-full max-w-2xl bg-white rounded-2xl h-12 relative;
-}
+/*.search-input {*/
+/*  @apply overflow-hidden w-full max-w-2xl bg-white rounded-2xl h-12 relative;*/
+/*}*/
 input {
   @apply w-full box-border pl-12 border-b outline-none placeholder-gray-400 h-12;
 }
