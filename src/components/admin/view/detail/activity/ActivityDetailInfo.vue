@@ -1,13 +1,12 @@
 <template>
-  <section
-    id="modal-body"
-    class="px-4 py-6 mr-3 overflow-y-auto flex justify-center"
-  >
-    <div CLASS="flex flex-wrap w-full max-w-screen-2xl justify-center">
+  <section id="modal-body" class="overflow-y-auto flex justify-center">
+    <div
+      class="flex flex-wrap w-full max-w-screen-2xl justify-center px-4 py-6 m-3 shadow-md rounded-md bg-gray-50"
+    >
       <img
         src="https://via.placeholder.com/150x100"
         alt="Post image"
-        class="w-80 h-80 object-cover mt-4 mr-3"
+        class="w-80 h-80 object-cover mt-4 mr-3 rounded-md"
       />
       <div class="w-fit flex flex-col grow min-w-[50%] mt-4">
         <textarea
@@ -16,7 +15,7 @@
             'outline-none text-gray-500': !editable,
             'border-2 border-black': editable,
           }"
-          class="text-left w-full resize-none flex-grow p-2"
+          class="text-left w-full resize-none flex-grow p-2 bg-white rounded-md"
         >
  Lorem ipsum dolor sit amet, simul tantas oportere est eu. Cu sed tempor tritani intellegam, euismod necessitatibus mei cu, populo democritum definiebas pri id. Mea quas mollis omittam ut. Vis etiam petentium argumentum et, vel cu zril eirmod. Quis suas nihil no est, qui nibh commune cu, duo utinam labores sadipscing at. Nam quando tritani eu, eruditi interesset in eos.
 Id pri dico nostrud menandri, hinc soluta conclusionemque at sed. Eam in qualisque percipitur, delectus sadipscing at has. Sed purto necessitatibus ut, at tritani blandit eam. In ius lucilius intellegebat. Reque offendit theophrastus in mei.
