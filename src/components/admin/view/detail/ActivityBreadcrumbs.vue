@@ -1,7 +1,7 @@
 <template>
   <div>
-    <nav>
-      <div class="text-xs p-0 pl-5">
+    <nav class="p-0">
+      <div class="text-xs p-0 pl-7">
         <router-link :to="`/${$i18n.locale}/admin/overview/activity`">
           <font-awesome-icon icon="fa-solid fa-house" />
         </router-link>

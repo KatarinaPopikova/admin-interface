@@ -35,7 +35,7 @@ nav {
 .sub-nav {
   @apply flex justify-center pt-2 text-2xl;
 
-  div {
+  div:first-of-type {
     @apply flex justify-evenly w-96
   }
 }
