@@ -22,11 +22,22 @@ nav {
   @apply p-7;
 
   a {
-    font-weight: bold;
+    @apply text-2xl;
 
     &.router-link-exact-active {
-      @apply text-main-color-500;
+      @apply text-main-color-500 underline;
     }
+    &:hover {
+      @apply text-main-color-400;
+    }
+  }
+}
+
+.sub-nav {
+  @apply flex justify-center pt-2;
+
+  div {
+    @apply flex justify-evenly w-96
   }
 }
 
