@@ -14,8 +14,9 @@
               </tr>
             </thead>
             <tbody>
+              <row-picker />
               <summary-sale-table-row
-                class="even:bg-gray-50"
+                class="odd:bg-gray-50"
                 v-for="index in 5"
                 :key="index"
                 date="10.10.2022"
@@ -42,12 +43,14 @@
 
 <script>
 import SummarySaleTableRow from "@/components/admin/view/detail/summary/SummarySaleTableRow";
+import RowPicker from "@/components/admin/view/detail/RowPicker.vue";
 import ModalSaleInfo from "@/components/admin/modal/sale-information/ModalSaleInfo";
 export default {
   name: "SummarySaleTable",
   components: {
     ModalSaleInfo,
     SummarySaleTableRow,
+    RowPicker,
   },
   data() {
     return {

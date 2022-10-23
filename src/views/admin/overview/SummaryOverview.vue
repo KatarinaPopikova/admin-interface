@@ -4,7 +4,7 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import SummaryCard from "@/components/admin/view/overview/summary/SummaryCard.vue";
+import SummaryCard from "@/components/admin/view/overview/summary/SummaryInfo.vue";
 
 export default defineComponent({
   name: "SummaryOverview",

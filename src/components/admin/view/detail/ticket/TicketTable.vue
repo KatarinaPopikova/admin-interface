@@ -14,8 +14,9 @@
               </tr>
             </thead>
             <tbody>
+              <row-picker />
               <ticket-table-row
-                class="even:bg-gray-50"
+                class="odd:bg-gray-50"
                 v-for="index in 3"
                 :key="index"
                 ticketName="Ticket name"
@@ -35,10 +36,12 @@
 
 <script>
 import TicketTableRow from "@/components/admin/view/detail/ticket/TicketTableRow";
+import RowPicker from "@/components/admin/view/detail/RowPicker.vue";
 export default {
   name: "TicketTable",
   components: {
     TicketTableRow,
+    RowPicker,
   },
 };
 </script>
