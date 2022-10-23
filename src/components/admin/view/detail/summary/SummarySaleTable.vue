@@ -1,5 +1,5 @@
 <template>
-  <div class="overflow-x-aut">
+  <div class="overflow-x-auto">
     <div
       class="max-w-screen-2xl bg-gray-100 flex items-center justify-center bg-gray-100 overflow-hidden m-auto"
     >
