@@ -22,7 +22,6 @@ nav {
   @apply p-7;
 
   a {
-    @apply text-2xl;
 
     &.router-link-exact-active {
       @apply text-main-color-500 underline;
@@ -34,7 +33,7 @@ nav {
 }
 
 .sub-nav {
-  @apply flex justify-center pt-2;
+  @apply flex justify-center pt-2 text-2xl;
 
   div {
     @apply flex justify-evenly w-96

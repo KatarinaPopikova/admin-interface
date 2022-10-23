@@ -15,6 +15,7 @@
           @showLogOutPermission="showLogOutPermission"
           @openAdminSettings="openAdminSettings"
         />
+        <activity-breadcrumbs :activitySubNav="isActivitySubNav" />
 
         <component :is="Component" />
       </div>
@@ -33,6 +34,7 @@ import { defineComponent } from "vue";
 import AdminNavigation from "@/components/admin/navbar/AdminNavigation.vue";
 import AdminSettings from "@/components/admin/navbar/AdminSettings.vue";
 import ModalLogOut from "@/components/admin/modal/log-out/ModalLogOut.vue";
+import ActivityBreadcrumbs from "@/components/admin/view/detail/ActivityBreadcrumbs.vue";
 
 export default defineComponent({
   name: "AdminView",
@@ -40,6 +42,7 @@ export default defineComponent({
     AdminNavigation,
     AdminSettings,
     ModalLogOut,
+    ActivityBreadcrumbs,
   },
   data() {
     return {

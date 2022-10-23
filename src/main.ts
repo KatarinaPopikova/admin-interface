@@ -25,6 +25,7 @@ import {
   faUserGear,
   faBars,
   faArrowLeft,
+  faHouse,
 } from "@fortawesome/free-solid-svg-icons";
 
 declare global {
@@ -59,7 +60,8 @@ library.add(
   faCheck,
   faUserGear,
   faBars,
-  faArrowLeft
+  faArrowLeft,
+  faHouse
 );
 
 createApp(App)
