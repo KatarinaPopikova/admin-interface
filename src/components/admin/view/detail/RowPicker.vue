@@ -1,11 +1,7 @@
 <template>
   <tr>
     <td colspan="4">
-      <button
-        class="text-sm px-3 py-1 m-3 has-radius rounded-md bg-gray-200 hover:bg-gray-300 shadow-sm"
-      >
-        Date picker
-      </button>
+      <date-picker />
       <button
         class="text-sm px-3 py-1 m-3 has-radius rounded-md bg-gray-200 hover:bg-gray-300 shadow-sm"
       >
@@ -17,9 +13,13 @@
 
 <script>
 import { defineComponent } from "vue";
+import DatePicker from "@/components/admin/view/DatePicker";
 
 export default defineComponent({
   name: "RowPicker",
+  components: {
+    DatePicker,
+  },
 });
 </script>
 
