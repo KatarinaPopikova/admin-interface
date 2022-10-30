@@ -28,10 +28,12 @@ import {
   faHouse,
 } from "@fortawesome/free-solid-svg-icons";
 
+import VueTailwindDatepicker from "vue-tailwind-datepicker";
+
 declare global {
   interface Window {
     // eslint-disable-next-line
-    eventBus: Emitter<any>;
+        eventBus: Emitter<any>;
   }
 }
 
@@ -69,5 +71,7 @@ createApp(App)
   .use(router)
   .use(i18n)
   .use(FlagIcon)
+  .use(VueTailwindDatepicker as never)
+
   .component("font-awesome-icon", FontAwesomeIcon)
   .mount("#app");
