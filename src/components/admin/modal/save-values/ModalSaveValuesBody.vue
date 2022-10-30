@@ -1,9 +1,5 @@
 <template>
-  <button
-    class="font-medium px-4 py-2 m-2 has-radius rounded-md text-white bg-gray-200 hover:bg-gray600"
-  >
-    Resend email
-  </button>
+  <p class="text-2xl text-center">Uložiť zmeny?</p>
 </template>
 
 <script lang="ts">
