@@ -13,7 +13,7 @@ module.exports = {
         "main-color": colors.emerald,
         "danger-color": colors.red,
 
-        "vtd-primary": colors.sky, // Light mode Datepicker color
+        "vtd-primary": colors.emerald, // Light mode Datepicker color
       },
     },
   },

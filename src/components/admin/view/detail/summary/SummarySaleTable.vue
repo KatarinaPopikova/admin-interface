@@ -3,7 +3,7 @@
     <div
       class="max-w-screen-2xl bg-gray-100 flex items-center justify-center bg-gray-100 overflow-hidden m-auto"
     >
-      <div class="w-full lg:w-5/6 m-3">
+      <div class="table-size">
         <div class="bg-white shadow-md my-6 rounded-md">
           <table class="min-w-max w-full table-auto">
             <thead>

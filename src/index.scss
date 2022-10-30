@@ -32,6 +32,11 @@ nav {
   }
 }
 
+.table-size {
+  @apply w-full lg:w-5/6 m-3 min-h-[530px];
+}
+
+
 .sub-nav {
   @apply flex justify-center pt-2 text-2xl;
 
