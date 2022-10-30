@@ -14,7 +14,6 @@ module.exports = {
         "danger-color": colors.red,
 
         "vtd-primary": colors.sky, // Light mode Datepicker color
-        "vtd-secondary": colors.gray, // Dark mode Datepicker color
       },
     },
   },
