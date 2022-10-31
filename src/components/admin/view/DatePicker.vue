@@ -4,6 +4,7 @@
     :formatter="formatter"
     :options="`${$i18n.locale}` === 'sk' ? options : undefined"
     v-model="dateValue"
+    vtd-shortcuts-classes="font-bold"
   />
 </template>
 
@@ -36,4 +37,8 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style>
+.vtd-shortcuts {
+  font-weight: bold !important;
+}
+</style>
