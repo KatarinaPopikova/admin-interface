@@ -8,14 +8,14 @@
           <h2>Summary detail</h2>
         </header>
 
-        <div class="flex flex-row">
-          <div class="w-1/3">
-            <div class="w-fit">
+        <div class="flex flex-row my-2">
+          <div class="md:w-1/3 w-1/2">
+            <div class="w-full">
               <activity-picker />
             </div>
           </div>
-          <div class="w-1/3">
-            <div class="w-fit">
+          <div class="md:w-1/3 w-1/2">
+            <div class="w-full">
               <date-picker />
             </div>
           </div>
