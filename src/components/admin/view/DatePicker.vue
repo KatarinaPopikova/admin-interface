@@ -1,12 +1,10 @@
 <template>
-  <div class="w-1/2 m-1 md:w-1/3">
-    <vue-tailwind-datepicker
-      :i18n="$i18n.locale"
-      :formatter="formatter"
-      :options="`${$i18n.locale}` === 'sk' ? options : undefined"
-      v-model="dateValue"
-    />
-  </div>
+  <vue-tailwind-datepicker
+    :i18n="$i18n.locale"
+    :formatter="formatter"
+    :options="`${$i18n.locale}` === 'sk' ? options : undefined"
+    v-model="dateValue"
+  />
 </template>
 
 <script>

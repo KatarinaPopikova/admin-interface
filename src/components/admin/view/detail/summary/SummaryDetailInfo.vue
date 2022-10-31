@@ -8,12 +8,8 @@
           <h2>Summary detail</h2>
         </header>
 
-        <div>
-          <button
-            class="text-sm px-3 py-1 m-3 has-radius rounded-md bg-gray-200 hover:bg-gray-300 shadow-sm"
-          >
-            Date picker
-          </button>
+        <div class="w-fit mb-4">
+          <date-picker />
         </div>
         <div
           class="text-left w-full resize-none flex-grow p-2 bg-white rounded-md"
@@ -44,8 +40,10 @@
 </template>
 
 <script>
+import DatePicker from "@/components/admin/view/DatePicker";
 export default {
   name: "SummaryDetailInfo",
+  components: { DatePicker },
 };
 </script>
 

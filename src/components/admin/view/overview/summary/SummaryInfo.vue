@@ -8,17 +8,17 @@
           <h2>Summary detail</h2>
         </header>
 
-        <div>
-          <button
-            class="text-sm px-3 py-1 m-3 has-radius rounded-md bg-gray-200 hover:bg-gray-300 shadow-sm"
-          >
-            Activity picker
-          </button>
-          <button
-            class="text-sm px-3 py-1 m-3 has-radius rounded-md bg-gray-200 hover:bg-gray-300 shadow-sm"
-          >
-            Date picker
-          </button>
+        <div class="flex flex-row">
+          <div class="w-1/3">
+            <div class="w-fit">
+              <activity-picker />
+            </div>
+          </div>
+          <div class="w-1/3">
+            <div class="w-fit">
+              <date-picker />
+            </div>
+          </div>
         </div>
         <div
           class="text-left w-full resize-none flex-grow p-2 bg-white rounded-md"
@@ -50,9 +50,12 @@
 
 <script>
 import { defineComponent } from "vue";
+import DatePicker from "@/components/admin/view/DatePicker";
+import ActivityPicker from "@/components/admin/view/overview/summary/ActivityPicker";
 
 export default defineComponent({
   name: "SummaryInfo",
+  components: { ActivityPicker, DatePicker },
 });
 </script>
 

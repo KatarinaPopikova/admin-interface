@@ -1,8 +1,10 @@
 <template>
   <tr>
     <td colspan="4">
-      <div class="flex flex-row">
-        <date-picker />
+      <div class="flex flex-row mt-2">
+        <div class="w-1/2 m-1 md:w-1/3">
+          <date-picker />
+        </div>
         <search-bar />
       </div>
     </td>
