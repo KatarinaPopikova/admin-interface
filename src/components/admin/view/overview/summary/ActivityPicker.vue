@@ -12,11 +12,13 @@
               @mousedown="open()"
               placeholder="Select activity"
               @keydown.enter.stop.prevent="selectOption()"
-              class="p-1 px-2 appearance-none outline-none w-full text-gray-800"
+              class="p-1 px-2 outline-none w-full text-gray-800"
             />
-            <div class="text-gray-300 w-8 py-1 pl-2 pr-1 flex items-center">
+            <div
+              @click="toggle()"
+              class="text-gray-300 w-8 py-1 pl-2 pr-1 flex items-center"
+            >
               <button
-                @click="toggle()"
                 class="cursor-pointer w-6 h-6 text-gray-600 outline-none focus:outline-none"
               >
                 <svg
@@ -48,7 +50,7 @@
             <template v-for="(option, index) in filteredOptions()" :key="index">
               <div
                 @click="onOptionClick(index)"
-                :class="classOption(option.login.uuid, index)"
+                :class="classOption(option.login.uuid)"
                 :aria-selected="focusedOptionIndex === index"
               >
                 <div
@@ -124,7 +126,7 @@ export default defineComponent({
         ? this.selected.name.first + " " + this.selected.name.last
         : this.filter;
     },
-    classOption(id, index) {
+    classOption(id) {
       const isSelected = this.selected
         ? id === this.selected.login.uuid
         : false;
