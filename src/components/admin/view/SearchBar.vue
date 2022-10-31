@@ -38,7 +38,7 @@ export default defineComponent({
   @apply md:w-1/3 w-1/2 max-w-2xl h-12 relative;
 }
 input {
-  @apply w-full m-1 pl-12 py-2.5 rounded-lg overflow-hidden border-solid text-sm transition-colors bg-white border
-  focus:border-vtd-primary-500 focus:ring focus:ring-vtd-primary-500 focus:ring-opacity-20;
+  @apply w-full m-1 pl-12 py-2.5 rounded-lg overflow-hidden border-solid text-sm transition-colors border focus:outline-none
+  focus:border-main-color-500 focus:ring focus:ring-vtd-primary-500 focus:ring-opacity-20;
 }
 </style>
