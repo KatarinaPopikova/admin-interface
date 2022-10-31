@@ -1,24 +1,24 @@
 <template>
   <tr>
     <td colspan="4">
-      <date-picker />
-      <button
-        class="text-sm px-3 py-1 m-3 has-radius rounded-md bg-gray-200 hover:bg-gray-300 shadow-sm"
-      >
-        Search bar
-      </button>
+      <div class="flex flex-row">
+        <date-picker />
+        <search-bar />
+      </div>
     </td>
   </tr>
 </template>
 
 <script>
 import { defineComponent } from "vue";
-import DatePicker from "@/components/admin/view/DatePicker";
+import DatePicker from "@/components/admin/view/DatePicker.vue";
+import SearchBar from "@/components/admin/view/SearchBar.vue";
 
 export default defineComponent({
   name: "RowPicker",
   components: {
     DatePicker,
+    SearchBar,
   },
 });
 </script>
