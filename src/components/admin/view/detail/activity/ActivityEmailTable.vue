@@ -20,23 +20,41 @@
                 :key="index"
                 email="example@email.com"
                 @edit-value="(newPhone) => console.log(newPhone)"
-                @save-edited-value="console.log(saveNewPhone)"
-                @restore-edited-value="console.log(restorePhone)"
-                @open-save-modal="console.log(handleSaveModal)"
+                @save-edited-value="log"
+                @restore-edited-value="log"
+                @open-save-modal="log"
+                @show-email="handleEmail(true)"
+                @close-email="handleEmail(false)"
               />
             </tbody>
           </table>
         </div>
       </div>
     </div>
+
+    <EmailReader v-if="showEmail" />
   </div>
 </template>
 
 <script>
 import ActivityEmailTableRow from "@/components/admin/view/detail/activity/ActivityEmailTableRow";
+import EmailReader from "@/components/admin/view/detail/activity/EmailReader";
 export default {
   name: "EmailTable",
-  components: { ActivityEmailTableRow },
+  components: { EmailReader, ActivityEmailTableRow },
+  data() {
+    return {
+      showEmail: false,
+    };
+  },
+  methods: {
+    handleEmail(showEmail) {
+      this.showEmail = showEmail;
+    },
+    log() {
+      console.log("asdasdas");
+    },
+  },
 };
 </script>
 

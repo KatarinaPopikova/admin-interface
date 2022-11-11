@@ -68,14 +68,17 @@ export default defineComponent({
   methods: {
     startEditInputArea() {
       this.editable = true;
+      this.$emit("show-email");
     },
     saveEditedInputArea() {
       this.editable = false;
       this.$emit("save-edited-value");
+      this.$emit("close-email");
     },
     restoreEditedInputArea() {
       this.editable = false;
       this.$emit("restore-edited-value");
+      this.$emit("close-email");
     },
     editEmail(editedValue) {
       this.$emit("edit-value", editedValue);
