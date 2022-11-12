@@ -1,5 +1,5 @@
 <template>
-  <section id="modal-body" class="overflow-y-auto flex justify-center">
+  <section class="flex justify-center">
     <div
       class="flex flex-wrap w-full max-w-screen-2xl justify-center px-4 py-6 m-3 shadow-md rounded-md bg-gray-50"
     >
@@ -11,12 +11,12 @@
         <div class="flex flex-row my-2">
           <div class="md:w-1/3 w-1/2">
             <div class="w-full">
-              <activity-picker />
+              <date-picker />
             </div>
           </div>
           <div class="md:w-1/3 w-1/2">
             <div class="w-full">
-              <date-picker />
+              <activity-picker />
             </div>
           </div>
         </div>

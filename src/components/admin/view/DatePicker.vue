@@ -38,6 +38,16 @@ export default {
 
 <style>
 .vtd-shortcuts {
-  font-weight: bold !important;
+  @apply font-bold !important;
+}
+#headlessui-popover-panel-2 > div {
+  @apply -left-8 md:left-0 right-auto  !important;
+}
+
+.vtd-datepicker.place-right:before {
+  @apply left-9 md:left-5  !important;
+}
+.vtd-datepicker.place-left:before {
+  @apply left-9 md:left-5  !important;
 }
 </style>

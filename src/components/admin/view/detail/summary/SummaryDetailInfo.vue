@@ -1,5 +1,5 @@
 <template>
-  <section id="modal-body" class="overflow-y-auto flex justify-center">
+  <section id="modal-body" class="flex justify-center">
     <div
       class="flex flex-wrap w-full max-w-screen-2xl justify-center px-4 py-6 m-3 shadow-md rounded-md bg-gray-50"
     >
