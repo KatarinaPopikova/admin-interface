@@ -34,7 +34,7 @@ import { defineComponent } from "vue";
 import AdminNavigation from "@/components/admin/main-navbar/AdminNavigation.vue";
 import AdminSettings from "@/components/admin/main-navbar/AdminSettings.vue";
 import ModalLogOut from "@/components/admin/modal/log-out/ModalLogOut.vue";
-import ActivityBreadcrumbs from "@/components/admin/view/detail/ActivityBreadcrumbs.vue";
+import ActivityBreadcrumbs from "@/components/admin/view/ActivityBreadcrumbs.vue";
 
 export default defineComponent({
   name: "AdminView",

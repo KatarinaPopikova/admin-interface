@@ -20,6 +20,15 @@
               Summaries
             </router-link>
           </div>
+          <div v-if="currentRouteName === 'emailEditor'">
+            |
+            <router-link
+              :to="`/${$i18n.locale}/admin/${this.$route.params.id}/activity/email/${this.$route.params.email_id}`"
+            >
+              Email
+            </router-link>
+          </div>
+
           <div v-if="currentRouteName === 'ticket'">
             |
             <router-link
@@ -52,7 +61,13 @@ export default defineComponent({
   },
   data() {
     return {
-      detailSubPage: ["detail", "activityDetail", "summaryDetail", "ticket"],
+      detailSubPage: [
+        "detail",
+        "activityDetail",
+        "summaryDetail",
+        "ticket",
+        "emailEditor",
+      ],
     };
   },
   computed: {
