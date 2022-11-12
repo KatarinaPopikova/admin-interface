@@ -1,17 +1,19 @@
 <template>
-  <div class="flex flex-col md:flex-row">
-    <textarea
-      class="basis-1 md:basis-1/2"
-      name="html"
-      id="1"
-      cols="100"
-      rows="10"
-      v-model="rawHtml"
+  <div class="p-3">
+    <div
+      class="flex flex-col lg:flex-row px-4 py-6 m-3 shadow-md rounded-md bg-gray-50 min-h-[84vh]"
     >
-    </textarea>
-    <p class="basis-1 md:basis-1/2">
-      Using v-html directive: <span v-html="rawHtml"></span>
-    </p>
+      <textarea
+        class="basis-1 md:basis-1/2 text-left w-full resize-none flex-grow p-3 bg-white rounded-md min-h-[300px]"
+        name="html"
+        id="1"
+        v-model="rawHtml"
+      >
+      </textarea>
+      <div class="basis-1 md:basis-1/2 p-3">
+        Using v-html directive: <span v-html="rawHtml"></span>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -25,7 +27,7 @@ export default defineComponent({
     return {
       rawHtml: `<body>
 
-<h2>Responsive\n Four \nColumn\n Layout with Flex</h2>\n
+<h2>Responsive Four Column Layout with Flex</h2>
 <p><strong>Resize the browser window to see the responsive effect.</strong> On screens that are 992px wide or less, the columns will resize from four columns to two columns. On screens that are 600px wide or less, the columns will stack on top of each other instead of next to eachother.</p>
 
 <div class="row">

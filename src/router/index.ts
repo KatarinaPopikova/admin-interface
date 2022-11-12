@@ -11,6 +11,7 @@ import ActivityDetailView from "../views/admin/detail/ActivityDetailView.vue";
 import SummaryDetailView from "../views/admin/detail/SummaryDetailView.vue";
 import TicketDetailView from "../views/admin/detail/TicketDetailView.vue";
 import i18n from "@/locales/i18n";
+import EmailEditorView from "@/views/admin/detail/email-editor/EmailEditorView.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -81,6 +82,11 @@ const routes: Array<RouteRecordRaw> = [
                 component: TicketDetailView,
               },
             ],
+          },
+          {
+            path: ":id/activity/email/:email_id",
+            name: "emailEditor",
+            component: EmailEditorView,
           },
         ],
       },

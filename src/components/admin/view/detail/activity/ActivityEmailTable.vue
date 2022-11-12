@@ -19,12 +19,11 @@
                 v-for="index in 5"
                 :key="index"
                 email="example@email.com"
+                :email_id="index"
                 @edit-value="(newPhone) => console.log(newPhone)"
                 @save-edited-value="log"
                 @restore-edited-value="log"
                 @open-save-modal="log"
-                @show-email="handleEmail(true)"
-                @close-email="handleEmail(false)"
               />
             </tbody>
           </table>
@@ -48,9 +47,6 @@ export default {
     };
   },
   methods: {
-    handleEmail(showEmail) {
-      this.showEmail = showEmail;
-    },
     log() {
       console.log("asdasdas");
     },
