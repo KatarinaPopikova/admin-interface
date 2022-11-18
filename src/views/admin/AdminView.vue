@@ -1,15 +1,29 @@
 <template>
-  <transition name="slide">
+  <Transition
+    leave-active-class="transition-all ease-out duration-700"
+    enter-active-class="transition-all ease-out duration-700"
+    leave-from-class="absolute right-0"
+    leave-to-class="absolute -right-full"
+    enter-from-class="absolute -right-full"
+    enter-to-class="absolute right-0"
+  >
     <div v-if="isAdminSettingsOpen" class="w-full min-h-screen">
       <admin-settings
         @close-admin-settings="closeAdminSettings"
         @showLogOutPermission="showLogOutPermission"
       />
     </div>
-  </transition>
+  </Transition>
 
   <router-view v-slot="{ Component }">
-    <transition name="slide">
+    <Transition
+      leave-active-class="transition-all ease-out duration-700"
+      enter-active-class="transition-all ease-out duration-700"
+      leave-from-class="absolute left-0"
+      leave-to-class="absolute -left-full"
+      enter-from-class="absolute -left-full"
+      enter-to-class="absolute left-0"
+    >
       <div v-if="!isAdminSettingsOpen">
         <admin-navigation
           @showLogOutPermission="showLogOutPermission"
@@ -19,7 +33,7 @@
 
         <component :is="Component" />
       </div>
-    </transition>
+    </Transition>
   </router-view>
   <div>
     <modal-log-out
@@ -59,10 +73,6 @@ export default defineComponent({
     closeLogOutPermission() {
       this.openLogOutModal = false;
     },
-
-    closeCardModal() {
-      this.isCardModalVisible = false;
-    },
     openAdminSettings() {
       this.isAdminSettingsOpen = true;
     },
@@ -73,29 +83,4 @@ export default defineComponent({
 });
 </script>
 
-<style scoped>
-.slide-enter-active,
-.slide-leave-active {
-  transition: all 0.75s ease-out;
-}
-
-.slide-enter-to {
-  position: absolute;
-  right: 0;
-}
-
-.slide-enter-from {
-  position: absolute;
-  right: -100%;
-}
-
-.slide-leave-to {
-  position: absolute;
-  left: -100%;
-}
-
-.slide-leave-from {
-  position: absolute;
-  left: 0;
-}
-</style>
+<style scoped></style>
