@@ -22,13 +22,13 @@ Id pri dico nostrud menandri, hinc soluta conclusionemque at sed. Eam in qualisq
         </textarea>
         <font-awesome-icon
           v-if="!editable"
-          class="self-end pt-2 h-6 w-6 text-main-color-400"
+          class="self-end pt-2 h-6 w-6 text-main-color-400 hover:cursor-pointer"
           icon="fa-regular fa-pen-to-square"
           @click="handleTextarea"
         />
         <font-awesome-icon
           v-if="editable"
-          class="self-end pt-2 h-6 w-6 text-main-color-400"
+          class="self-end pt-2 h-6 w-6 text-main-color-400 hover:cursor-pointer"
           icon="fa-solid fa-check"
           @click="handleTextarea"
         />

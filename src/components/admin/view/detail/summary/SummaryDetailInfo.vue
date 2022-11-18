@@ -8,7 +8,7 @@
           <h2>Summary detail</h2>
         </header>
 
-        <div class="w-fit mb-4">
+        <div class="w-80 mb-4">
           <date-picker />
         </div>
         <div
