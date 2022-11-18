@@ -15,7 +15,7 @@
           @showLogOutPermission="showLogOutPermission"
           @openAdminSettings="openAdminSettings"
         />
-        <activity-breadcrumbs :activitySubNav="isActivitySubNav" />
+        <activity-breadcrumbs />
 
         <component :is="Component" />
       </div>

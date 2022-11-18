@@ -54,11 +54,6 @@ import { defineComponent } from "vue";
 
 export default defineComponent({
   name: "ActivityBreadcrumbs",
-  props: {
-    activitySubNav: {
-      type: String,
-    },
-  },
   data() {
     return {
       detailSubPage: [
