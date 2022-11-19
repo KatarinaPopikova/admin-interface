@@ -1,41 +1,21 @@
 <template>
-  <div class="overflow-x-auto">
-    <div
-      class="max-w-screen-2xl bg-gray-100 flex items-center justify-center bg-gray-100 overflow-hidden m-auto"
-    >
-      <div class="table-size">
-        <div class="bg-white shadow-md my-6 rounded-md">
-          <table class="min-w-max w-full table-auto">
-            <thead>
-              <tr class="bg-gray-200">
-                <th colspan="4" class="py-3 px-6 text-left rounded-t-md">
-                  Sales
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              <row-picker />
-              <summary-sale-table-row
-                class="odd:bg-gray-50"
-                v-for="index in 5"
-                :key="index"
-                date="10.10.2022"
-                email="example@email.com"
-                paid="Paid"
-                price="100.00€"
-                @edit-value="(newPhone) => console.log(newPhone)"
-                @save-edited-value="console.log(saveNewPhone)"
-                @restore-edited-value="console.log(restorePhone)"
-                @open-save-modal="console.log(handleSaveModal)"
-                @click="openSaleInfoModal"
-              />
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-  </div>
-
+  <table-design :colspan-count="4" :table-name="'Sales'">
+    <row-picker />
+    <summary-sale-table-row
+      class="odd:bg-gray-50"
+      v-for="index in 5"
+      :key="index"
+      date="10.10.2022"
+      email="example@email.com"
+      paid="Paid"
+      price="100.00€"
+      @edit-value="(newPhone) => console.log(newPhone)"
+      @save-edited-value="console.log(saveNewPhone)"
+      @restore-edited-value="console.log(restorePhone)"
+      @open-save-modal="console.log(handleSaveModal)"
+      @click="openSaleInfoModal"
+    />
+  </table-design>
   <div>
     <modal-sale-info v-if="isSaleInfoModalOpen" @close="closeSaleInfoModal" />
   </div>
@@ -45,9 +25,11 @@
 import SummarySaleTableRow from "@/components/admin/view/detail/summary/SummarySaleTableRow";
 import RowPicker from "@/components/admin/view/detail/RowPicker.vue";
 import ModalSaleInfo from "@/components/admin/modal/sale-information/ModalSaleInfo";
+import TableDesign from "@/components/admin/view/detail/TableDesign";
 export default {
   name: "SummarySaleTable",
   components: {
+    TableDesign,
     ModalSaleInfo,
     SummarySaleTableRow,
     RowPicker,
