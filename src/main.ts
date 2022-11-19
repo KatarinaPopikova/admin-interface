@@ -26,6 +26,7 @@ import {
   faBars,
   faArrowLeft,
   faHouse,
+  faSquareCheck,
 } from "@fortawesome/free-solid-svg-icons";
 
 import VueTailwindDatepicker from "vue-tailwind-datepicker";
@@ -63,7 +64,8 @@ library.add(
   faUserGear,
   faBars,
   faArrowLeft,
-  faHouse
+  faHouse,
+  faSquareCheck
 );
 
 createApp(App)
