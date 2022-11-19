@@ -11,6 +11,10 @@ export default {
     return Api.post(END_POINT, data);
   },
 
+  detail(id) {
+    return Api.get(`${END_POINT}/${id}`);
+  },
+
   delete(id) {
     return Api.delete(`${END_POINT}/${id}`);
   },

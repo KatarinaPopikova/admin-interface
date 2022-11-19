@@ -4,8 +4,8 @@ import { Api } from "@/api/axios";
 const END_POINT = "user/";
 
 export default {
-  detail() {
-    return axios
+  async detail() {
+    return await axios
       .get("https://jsonplaceholder.typicode.com/users")
       .then((response) => {
         if (response.status != 200) {

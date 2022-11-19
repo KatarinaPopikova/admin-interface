@@ -3,19 +3,19 @@ import { Api } from "./axios";
 const END_POINT = "api-token/";
 
 export default {
-  all() {
-    return Api.get(END_POINT);
+  async all() {
+    return await Api.get(END_POINT);
   },
 
-  store(data) {
-    return Api.post(END_POINT, data);
+  async store(data) {
+    return await Api.post(END_POINT, data);
   },
 
-  delete(id) {
-    return Api.delete(`${END_POINT}/${id}`);
+  async delete(id) {
+    return await Api.delete(`${END_POINT}/${id}`);
   },
 
-  deleteAll() {
-    return Api.delete(END_POINT);
+  async deleteAll() {
+    return await Api.delete(END_POINT);
   },
 };
