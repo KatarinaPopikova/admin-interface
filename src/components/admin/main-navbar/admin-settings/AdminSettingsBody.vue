@@ -60,7 +60,7 @@
 </template>
 
 <script lang="ts">
-import AdminSettingsSlot from "@/components/admin/main-navbar/AdminSettingsSlot.vue";
+import AdminSettingsSlot from "@/components/admin/main-navbar/admin-settings/AdminSettingsSlot.vue";
 import LanguagesList from "@/components/LanguagesList.vue";
 import EditableValue from "@/components/admin/EditableValue.vue";
 import { defineComponent } from "vue";

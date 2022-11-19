@@ -21,7 +21,7 @@
 <script lang="ts">
 import ModalSaveValues from "@/components/admin/modal/save-values/ModalSaveValues.vue";
 import { defineComponent } from "vue";
-import AdminSettingsBody from "@/components/admin/main-navbar/AdminSettingsBody.vue";
+import AdminSettingsBody from "@/components/admin/main-navbar/admin-settings/AdminSettingsBody.vue";
 import { mapGetters } from "vuex";
 
 export default defineComponent({

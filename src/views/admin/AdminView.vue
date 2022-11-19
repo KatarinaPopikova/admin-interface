@@ -46,7 +46,7 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import AdminNavigation from "@/components/admin/main-navbar/AdminNavigation.vue";
-import AdminSettings from "@/components/admin/main-navbar/AdminSettings.vue";
+import AdminSettings from "@/components/admin/main-navbar/admin-settings/AdminSettings.vue";
 import ModalLogOut from "@/components/admin/modal/log-out/ModalLogOut.vue";
 import ActivityBreadcrumbs from "@/components/admin/view/ActivityBreadcrumbs.vue";
 
