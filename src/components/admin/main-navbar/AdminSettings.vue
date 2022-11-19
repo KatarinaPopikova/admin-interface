@@ -7,6 +7,10 @@
         class="text-center text-main-color-400 hover:text-main-color-500 hover:cursor-pointer h-10 w-10"
       />
     </div>
+    <AdminSettingsBody
+      @show-log-out-permission="showLogOutPermission"
+      @handle-save-modal="handleSaveModal"
+    />
   </div>
 
   <div>
@@ -17,10 +21,13 @@
 <script lang="ts">
 import ModalSaveValues from "@/components/admin/modal/save-values/ModalSaveValues.vue";
 import { defineComponent } from "vue";
+import AdminSettingsBody from "@/components/admin/main-navbar/AdminSettingsBody.vue";
+import { mapGetters } from "vuex";
 
 export default defineComponent({
   name: "AdminSettings",
   components: {
+    AdminSettingsBody,
     ModalSaveValues,
   },
 
@@ -32,6 +39,8 @@ export default defineComponent({
   },
 
   methods: {
+    ...mapGetters("admin", ["isStateChanged"]),
+
     showLogOutPermission() {
       this.$emit("showLogOutPermission");
     },
