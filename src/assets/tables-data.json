@@ -1,0 +1,20 @@
+{
+  "sales": [
+    {"date":  "10.10.2022", "email":  "example1@email.com", "state": true, "amount": 100.00},
+    {"date":  "10.10.2022", "email":  "example2@email.com", "state": true, "amount": 100.00},
+    {"date":  "10.10.2022", "email":  "example3@email.com", "state": true, "amount": 100.00},
+    {"date":  "10.10.2022", "email":  "example4@email.com", "state": true, "amount": 100.00},
+    {"date":  "10.10.2022", "email":  "example5@email.com", "state": true, "amount": 100.00}
+  ],
+  "tickets": [
+    {"name": "Ticket name 1", "amount": "10.00"},
+    {"name": "Ticket name 2", "amount": "10.00"},
+    {"name": "Ticket name 3", "amount": "10.00"}
+  ],
+  "emails": [
+    {"email": "Email type 1"},
+    {"email": "Email type 2"},
+    {"email": "Email type 3"},
+    {"email": "Email type 4"}
+  ]
+}
