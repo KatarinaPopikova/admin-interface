@@ -1,7 +1,7 @@
 {
   "sales": [
     {"date":  "10.10.2022", "email":  "example1@email.com", "state": true, "amount": 100.00},
-    {"date":  "10.10.2022", "email":  "example2@email.com", "state": true, "amount": 100.00},
+    {"date":  "10.10.2022", "email":  "example2@email.com", "state": false, "amount": 100.00},
     {"date":  "10.10.2022", "email":  "example3@email.com", "state": true, "amount": 100.00},
     {"date":  "10.10.2022", "email":  "example4@email.com", "state": true, "amount": 100.00},
     {"date":  "10.10.2022", "email":  "example5@email.com", "state": true, "amount": 100.00}

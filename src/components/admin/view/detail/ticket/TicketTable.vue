@@ -3,10 +3,10 @@
     <row-picker />
     <ticket-table-row
       class="odd:bg-gray-50"
-      v-for="index in 3"
-      :key="index"
-      ticketName="Ticket name"
-      price="10.00€"
+      v-for="ticket in ticketData"
+      :key="ticket.name"
+      :ticketName="ticket.name"
+      :price="ticket.amount + '€'"
       @edit-value="(newPhone) => console.log(newPhone)"
       @save-edited-value="console.log(saveNewPhone)"
       @restore-edited-value="console.log(restorePhone)"
@@ -19,12 +19,25 @@
 import TicketTableRow from "@/components/admin/view/detail/ticket/TicketTableRow";
 import RowPicker from "@/components/admin/view/detail/RowPicker.vue";
 import TableDesign from "@/components/admin/view/detail/TableDesign";
+
 export default {
   name: "TicketTable",
   components: {
     TableDesign,
     TicketTableRow,
     RowPicker,
+  },
+  data() {
+    return {
+      ticketData: [],
+    };
+  },
+  async mounted() {
+    await fetch("/json/tables-data.json")
+      .then((resp) => resp.json())
+      .then((json) => {
+        this.ticketData = json.tickets;
+      });
   },
 };
 </script>

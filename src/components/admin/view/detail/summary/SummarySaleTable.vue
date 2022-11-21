@@ -3,12 +3,12 @@
     <row-picker />
     <summary-sale-table-row
       class="odd:bg-gray-50"
-      v-for="index in 5"
+      v-for="(sale, index) in sales"
       :key="index"
-      date="10.10.2022"
-      email="example@email.com"
-      paid="Paid"
-      price="100.00€"
+      :date="sale.date"
+      :email="sale.email"
+      :paid="sale.state"
+      :price="sale.amount + '€'"
       @edit-value="(newPhone) => console.log(newPhone)"
       @save-edited-value="console.log(saveNewPhone)"
       @restore-edited-value="console.log(restorePhone)"
@@ -37,6 +37,7 @@ export default {
   data() {
     return {
       isSaleInfoModalOpen: false,
+      sales: [],
     };
   },
 
@@ -47,6 +48,13 @@ export default {
     closeSaleInfoModal() {
       this.isSaleInfoModalOpen = false;
     },
+  },
+  async mounted() {
+    await fetch("/json/tables-data.json")
+      .then((resp) => resp.json())
+      .then((json) => {
+        this.sales = json.sales;
+      });
   },
 };
 </script>

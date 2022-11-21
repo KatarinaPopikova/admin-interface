@@ -8,8 +8,14 @@
     </td>
     <td class="py-3 text-left whitespace-nowrap">
       <span class="flex items-center">
-        <font-awesome-icon icon="fa-solid fa-square-check" class="pr-1.5" />
-        {{ paid }}
+        <font-awesome-icon
+          icon="fa-solid fa-square-check"
+          class="pr-1.5"
+          v-bind:class="{
+            'text-danger-color-500': !paid,
+          }"
+        />
+        {{ paidText }}
       </span>
     </td>
     <td class="py-3 text-left whitespace-nowrap">
@@ -29,10 +35,20 @@ export default {
       type: String,
     },
     paid: {
-      type: String,
+      type: Boolean,
+      default: false,
     },
     price: {
       type: String,
+    },
+  },
+  computed: {
+    paidText() {
+      if (this.paid) {
+        return "Paid";
+      } else {
+        return "Unpaid";
+      }
     },
   },
 };
