@@ -99,4 +99,17 @@ const router = createRouter({
   routes,
 });
 
+router.beforeEach((to, from, next) => {
+  let language = to.params.lang;
+  const allowedLanguages = ["sk", "en"];
+  if (!language || !allowedLanguages.includes(<string>language)) {
+    language = "sk";
+  }
+
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
+  i18n.global.locale = language;
+  next();
+});
+
 export default router;

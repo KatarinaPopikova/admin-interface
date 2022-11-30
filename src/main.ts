@@ -7,27 +7,7 @@ import "./index.scss";
 import mitt, { Emitter } from "mitt";
 import FlagIcon from "vue-flag-icon";
 import i18n from "@/locales/i18n";
-
-/* import the fontawesome core */
-import { library } from "@fortawesome/fontawesome-svg-core";
-
-/* import font awesome icon component */
-import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-
-/* import specific icons */
-import { faUser, faPenToSquare } from "@fortawesome/free-regular-svg-icons";
-import {
-  faArrowUpFromBracket,
-  faArrowRightFromBracket,
-  faXmark,
-  faMagnifyingGlass,
-  faCheck,
-  faUserGear,
-  faBars,
-  faArrowLeft,
-  faHouse,
-  faSquareCheck,
-} from "@fortawesome/free-solid-svg-icons";
+import FontAwesomeIcon from "@/imports/font-awesome";
 
 import VueTailwindDatepicker from "vue-tailwind-datepicker";
 
@@ -38,35 +18,7 @@ declare global {
   }
 }
 
-router.beforeEach((to, from, next) => {
-  let language = to.params.lang;
-  const allowedLanguages = ["sk", "en"];
-  if (!language || !allowedLanguages.includes(<string>language)) {
-    language = "sk";
-  }
-
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore
-  i18n.global.locale = language;
-  next();
-});
-
 window.eventBus = mitt();
-/* add icons to the library */
-library.add(
-  faUser,
-  faArrowUpFromBracket,
-  faArrowRightFromBracket,
-  faXmark,
-  faMagnifyingGlass,
-  faPenToSquare,
-  faCheck,
-  faUserGear,
-  faBars,
-  faArrowLeft,
-  faHouse,
-  faSquareCheck
-);
 
 createApp(App)
   .use(store)
