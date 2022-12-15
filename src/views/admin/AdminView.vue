@@ -1,45 +1,36 @@
 <template>
-  <Transition
-    leave-active-class="transition-all ease-out duration-700"
-    enter-active-class="transition-all ease-out duration-700"
-    leave-from-class="absolute right-0"
-    leave-to-class="absolute -right-full"
-    enter-from-class="absolute -right-full"
-    enter-to-class="absolute right-0"
-  >
-    <div v-if="isAdminSettingsOpen" class="w-full min-h-screen">
-      <admin-settings
-        @close-admin-settings="closeAdminSettings"
+  <div class="relative">
+    <div>
+      <admin-navigation
         @showLogOutPermission="showLogOutPermission"
+        @openAdminSettings="openAdminSettings"
       />
+      <activity-breadcrumbs />
     </div>
-  </Transition>
+    <router-view> </router-view>
 
-  <router-view v-slot="{ Component }">
     <Transition
       leave-active-class="transition-all ease-out duration-700"
       enter-active-class="transition-all ease-out duration-700"
-      leave-from-class="absolute left-0"
-      leave-to-class="absolute -left-full"
-      enter-from-class="absolute -left-full"
-      enter-to-class="absolute left-0"
+      leave-to-class="-right-[550px]"
+      enter-from-class="-right-[550px]"
     >
-      <div v-if="!isAdminSettingsOpen">
-        <admin-navigation
+      <div
+        v-if="isAdminSettingsOpen"
+        class="w-[550px] min-h-screen backdrop-blur-xl z-20 absolute right-0 top-0 shadow-lg"
+      >
+        <admin-settings
+          @close-admin-settings="closeAdminSettings"
           @showLogOutPermission="showLogOutPermission"
-          @openAdminSettings="openAdminSettings"
         />
-        <activity-breadcrumbs />
-
-        <component :is="Component" />
       </div>
     </Transition>
-  </router-view>
-  <div>
-    <modal-log-out
-      v-if="openLogOutModal"
-      @closeLogOutModal="closeLogOutPermission"
-    />
+    <div>
+      <modal-log-out
+        v-if="openLogOutModal"
+        @closeLogOutModal="closeLogOutPermission"
+      />
+    </div>
   </div>
 </template>
 

@@ -1,6 +1,6 @@
 <template>
-  <div class="flex flex-col m-auto sm:w-1/2">
-    <AdminSettingsSlot :header-string="'Zmeniť jazyk'">
+  <div class="flex flex-col m-10">
+    <AdminSettingsSlot :header-string="'Zmeniť jazyk'" class="sm:hidden">
       <ul class="font-bold">
         <LanguagesList />
       </ul>
@@ -51,10 +51,8 @@
         @open-save-modal="handleSaveModal"
       />
     </AdminSettingsSlot>
-    <div class="flex flex-col m-auto sm:w-1/2">
-      <div>
-        <h3 @click="showLogOutPermission" class="clickable">Odhlásiť sa</h3>
-      </div>
+    <div class="flex flex-col text-danger-color-600 sm:hidden">
+      <h3 @click="showLogOutPermission" class="clickable">Odhlásiť sa</h3>
     </div>
   </div>
 </template>
@@ -108,7 +106,7 @@ export default defineComponent({
 
 <style scoped>
 h3 {
-  @apply text-2xl text-center max-w-sm m-auto;
+  @apply text-2xl;
 }
 
 .clickable {

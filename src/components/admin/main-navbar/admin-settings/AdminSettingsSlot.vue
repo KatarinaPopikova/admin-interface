@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="py-3">
     <h3
       @click="isOpen = !isOpen"
       v-bind:class="{
@@ -9,7 +9,7 @@
     >
       {{ headerString }}
     </h3>
-    <div v-if="isOpen">
+    <div v-if="isOpen" class="py-2">
       <slot></slot>
     </div>
   </div>
@@ -39,7 +39,7 @@ export default defineComponent({
 
 <style scoped>
 h3 {
-  @apply text-2xl text-center max-w-sm m-auto;
+  @apply text-2xl;
 }
 .clickable {
   @apply hover:text-main-color-500 hover:cursor-pointer;
