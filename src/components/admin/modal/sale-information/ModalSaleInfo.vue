@@ -6,7 +6,7 @@
   >
     <div
       id="modal"
-      class="has-radius rounded-2xl overflow-x-auto flex flex-col justify-between w-96 min-h-48 bg-white fixed"
+      class="has-radius rounded-md overflow-x-auto flex flex-col justify-between w-96 min-h-48 bg-white fixed"
     >
       <modal-header :modal-title="`Sale Information`" @close="close(false)" />
 

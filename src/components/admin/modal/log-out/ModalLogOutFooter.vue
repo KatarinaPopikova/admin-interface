@@ -1,5 +1,5 @@
 <template>
-  <footer class="p-4 overflow-y-auto flex justify-end">
+  <footer class="p-4 overflow-y-auto flex justify-end mr-4">
     <button
       @click="logOut"
       class="font-medium px-4 py-2 m-2 has-radius rounded-md text-white bg-danger-color-500 hover:bg-danger-color-600"

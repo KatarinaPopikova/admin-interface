@@ -6,7 +6,7 @@
   >
     <div
       id="modal"
-      class="has-radius rounded-2xl overflow-x-auto flex flex-col justify-between w-80 m-8 min-h-48 bg-white fixed"
+      class="has-radius rounded-md overflow-x-auto flex flex-col justify-between w-80 m-8 min-h-48 bg-white fixed"
     >
       <modal-header @close="close(false)" />
 
