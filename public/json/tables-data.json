@@ -11,10 +11,70 @@
     {"name": "Ticket name 2", "amount": "10.00"},
     {"name": "Ticket name 3", "amount": "10.00"}
   ],
-  "emails": [
-    {"email": "Email type 1"},
-    {"email": "Email type 2"},
-    {"email": "Email type 3"},
-    {"email": "Email type 4"}
-  ]
+  "emails": {
+    "total_pages": 40,
+    "results":
+    [
+      {
+        "page": 1,
+        "emails": [
+          {"email": "Email type 1"},
+          {"email": "Email type 2"},
+          {"email": "Email type 3"},
+          {"email": "Email type 4"},
+          {"email": "Email type 5"},
+          {"email": "Email type 6"},
+          {"email": "Email type 7"},
+          {"email": "Email type 8"},
+          {"email": "Email type 9"},
+          {"email": "Email type 10"}
+        ]
+      },
+      {
+        "page": 2,
+        "emails": [
+          {"email": "Email type 21"},
+          {"email": "Email type 22"},
+          {"email": "Email type 23"},
+          {"email": "Email type 24"},
+          {"email": "Email type 25"},
+          {"email": "Email type 26"},
+          {"email": "Email type 27"},
+          {"email": "Email type 28"},
+          {"email": "Email type 29"},
+          {"email": "Email type 20"}
+        ]
+      },
+      {
+        "page": 3,
+        "emails": [
+          {"email": "Email type 31"},
+          {"email": "Email type 32"},
+          {"email": "Email type 33"},
+          {"email": "Email type 34"},
+          {"email": "Email type 35"},
+          {"email": "Email type 36"},
+          {"email": "Email type 37"},
+          {"email": "Email type 38"},
+          {"email": "Email type 39"},
+          {"email": "Email type 30"}
+        ]
+      },
+      {
+        "page": 4,
+        "emails": [
+          {"email": "Email type 41"},
+          {"email": "Email type 42"},
+          {"email": "Email type 43"},
+          {"email": "Email type 44"},
+          {"email": "Email type 45"},
+          {"email": "Email type 46"},
+          {"email": "Email type 47"},
+          {"email": "Email type 48"},
+          {"email": "Email type 49"},
+          {"email": "Email type 40"}
+        ]
+      }
+    ]
+  }
 }

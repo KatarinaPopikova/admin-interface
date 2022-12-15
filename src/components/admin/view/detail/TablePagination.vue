@@ -1,105 +1,153 @@
 <template>
-  <nav
-    class="flex justify-between items-center pt-4"
-    aria-label="Table navigation"
-  >
-    <span class="text-sm font-normal text-gray-500 dark:text-gray-400"
-      >Showing
-      <span class="font-semibold text-gray-900 dark:text-white">1-10</span>
-      of
-      <span class="font-semibold text-gray-900 dark:text-white"
-        >1000</span
-      ></span
-    >
-    <ul class="inline-flex items-center -space-x-px">
-      <li>
-        <a
-          href="#"
-          class="block py-2 px-3 ml-0 leading-tight text-gray-500 bg-white rounded-l-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+  <div class="flex mx-12 justify-between">
+    <div class="flex flex-col items-center my-3">
+      <div class="flex text-gray-700">
+        <div
+          v-if="hasPrev()"
+          @click.prevent="changePage(prevPage)"
+          class="pagination-element"
         >
-          <span class="sr-only">Previous</span>
-          <svg
-            class="w-5 h-5"
-            aria-hidden="true"
-            fill="currentColor"
-            viewBox="0 0 20 20"
-            xmlns="http://www.w3.org/2000/svg"
+          <font-awesome-icon icon="fa-solid fa-angle-left" />
+        </div>
+
+        <div class="flex h-12 font-medium rounded-full bg-gray-100">
+          <div
+            v-if="hasFirst()"
+            @click.prevent="changePage(1)"
+            class="pagination-element"
           >
-            <path
-              fill-rule="evenodd"
-              d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
-              clip-rule="evenodd"
-            ></path>
-          </svg>
-        </a>
-      </li>
-      <li>
-        <a
-          href="#"
-          class="py-2 px-3 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-          >1</a
-        >
-      </li>
-      <li>
-        <a
-          href="#"
-          class="py-2 px-3 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-          >2</a
-        >
-      </li>
-      <li>
-        <a
-          href="#"
-          aria-current="page"
-          class="z-10 py-2 px-3 leading-tight text-blue-600 bg-blue-50 border border-blue-300 hover:bg-blue-100 hover:text-blue-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white"
-          >3</a
-        >
-      </li>
-      <li>
-        <a
-          href="#"
-          class="py-2 px-3 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-          >...</a
-        >
-      </li>
-      <li>
-        <a
-          href="#"
-          class="py-2 px-3 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-          >100</a
-        >
-      </li>
-      <li>
-        <a
-          href="#"
-          class="block py-2 px-3 leading-tight text-gray-500 bg-white rounded-r-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-        >
-          <span class="sr-only">Next</span>
-          <svg
-            class="w-5 h-5"
-            aria-hidden="true"
-            fill="currentColor"
-            viewBox="0 0 20 20"
-            xmlns="http://www.w3.org/2000/svg"
+            <span>1</span>
+          </div>
+          <div class="pagination-element" v-if="hasFirst()">...</div>
+          <div
+            v-for="page in pages"
+            :key="page"
+            class="pagination-element"
+            @click.prevent="changePage(page)"
+            :class="{
+              'bg-main-color-600 text-white': current === page,
+            }"
           >
-            <path
-              fill-rule="evenodd"
-              d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-              clip-rule="evenodd"
-            ></path>
-          </svg>
-        </a>
-      </li>
-    </ul>
-  </nav>
+            <span>{{ page }}</span>
+          </div>
+          <div class="pagination-element" v-if="hasLast()">...</div>
+          <div
+            v-if="hasLast()"
+            @click.prevent="changePage(totalPages)"
+            class="pagination-element"
+          >
+            <span>{{ totalPages }}</span>
+          </div>
+        </div>
+        <div
+          v-if="hasNext()"
+          @click.prevent="changePage(nextPage)"
+          class="pagination-element"
+        >
+          <font-awesome-icon icon="fa-solid fa-angle-right" />
+        </div>
+      </div>
+    </div>
+
+    <div class="flex items-center">
+      <div class="pr-2 text-gray-400 font-medium">
+        <span>{{ $t("textBeforeInput") }}</span>
+      </div>
+      <div class="w-14 rounded-md border border-main-color-700 px-1 py-1">
+        <input
+          v-model.number="input"
+          class="w-12 focus:outline-none px-2"
+          type="text"
+        />
+      </div>
+      <div
+        @click.prevent="changePage(input)"
+        class="flex items-center pl-4 font-medium cursor-pointer"
+      >
+        <span id="text-after-input">{{ $t("textAfterInput") }}</span>
+        <font-awesome-icon icon="fa-solid fa-angle-right" class="pl-0.5" />
+      </div>
+    </div>
+  </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
-
 export default defineComponent({
   name: "TablePagination",
+  props: {
+    current: {
+      type: Number,
+      default: 1,
+    },
+    total: {
+      type: Number,
+      default: 10,
+    },
+    perPage: {
+      type: Number,
+      default: 10,
+    },
+    pageRange: {
+      type: Number,
+      default: 1,
+    },
+  },
+  data() {
+    return {
+      input: "",
+    };
+  },
+  methods: {
+    hasFirst: function () {
+      return this.rangeStart !== 1;
+    },
+    hasLast: function () {
+      return this.rangeEnd < this.totalPages;
+    },
+    hasPrev: function () {
+      return this.current > 1;
+    },
+    hasNext: function () {
+      return this.current < this.totalPages;
+    },
+    changePage: function (page) {
+      if (page > 0 && page <= this.totalPages) {
+        this.$parent.$emit("page-changed", page);
+      }
+    },
+  },
+  computed: {
+    pages: function () {
+      let pages: number[] = [];
+      for (let i = this.rangeStart; i <= this.rangeEnd; i++) {
+        pages.push(i);
+      }
+      return pages;
+    },
+    rangeStart: function () {
+      let start = this.current - this.pageRange;
+      return start > 0 ? start : 1;
+    },
+    rangeEnd: function () {
+      let end = this.current + this.pageRange;
+      return end < this.totalPages ? end : this.totalPages;
+    },
+    totalPages: function () {
+      return Math.ceil(this.total / this.perPage);
+    },
+    nextPage: function () {
+      return this.current + 1;
+    },
+    prevPage: function () {
+      return this.current - 1;
+    },
+  },
 });
 </script>
 
-<style scoped></style>
+<style scoped>
+.pagination-element {
+  @apply w-12 md:flex justify-center items-center hidden cursor-pointer leading-5 transition duration-150 ease-in rounded-full;
+}
+</style>

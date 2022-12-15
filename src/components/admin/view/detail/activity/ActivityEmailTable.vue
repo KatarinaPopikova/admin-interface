@@ -1,5 +1,11 @@
 <template>
-  <table-design :colspan-count="2" :table-name="'Emails'">
+  <table-design
+    :colspan-count="2"
+    :table-name="'Emails'"
+    :current="current"
+    :total="total"
+    @page-changed="changePage"
+  >
     <activity-email-table-row
       class="even:bg-gray-50"
       v-for="(email, index) in emails"
@@ -23,19 +29,29 @@ export default {
   data() {
     return {
       emails: [],
+      current: 1,
+      total: 0,
     };
   },
   methods: {
     log() {
       console.log("log");
     },
+    changePage(page) {
+      this.getEmails(page);
+    },
+    async getEmails(page) {
+      this.current = page;
+      await fetch("/json/tables-data.json")
+        .then((resp) => resp.json())
+        .then((json) => {
+          this.emails = json.emails.results[page - 1].emails;
+          this.total = json.emails.total_pages;
+        });
+    },
   },
-  async mounted() {
-    await fetch("/json/tables-data.json")
-      .then((resp) => resp.json())
-      .then((json) => {
-        this.emails = json.emails;
-      });
+  mounted() {
+    this.getEmails(1);
   },
 };
 </script>

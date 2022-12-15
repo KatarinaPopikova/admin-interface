@@ -1,5 +1,7 @@
 {
   "hello": "Hello",
   "name": "Name",
-  "search": "Search..."
+  "search": "Search...",
+  "textAfterInput": "Go",
+  "textBeforeInput": "Go to page"
 }

@@ -17,6 +17,8 @@ import {
   faArrowLeft,
   faHouse,
   faSquareCheck,
+  faAngleLeft,
+  faAngleRight,
 } from "@fortawesome/free-solid-svg-icons";
 
 /* add icons to the library */
@@ -32,7 +34,9 @@ library.add(
   faBars,
   faArrowLeft,
   faHouse,
-  faSquareCheck
+  faSquareCheck,
+  faAngleLeft,
+  faAngleRight
 );
 
 export default FontAwesomeIcon;

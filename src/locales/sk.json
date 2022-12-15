@@ -1,5 +1,7 @@
 {
   "hello": "Ahoj",
   "name": "Meno",
-  "search": "Hľadať..."
+  "search": "Hľadať...",
+  "textAfterInput": "Ísť",
+  "textBeforeInput": "Ísť na stránku"
 }

@@ -20,6 +20,7 @@
               <slot></slot>
             </tbody>
           </table>
+          <TablePagination :current="current" :total="total" v-if="total > 1" />
         </div>
       </div>
     </div>
@@ -28,15 +29,23 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
+import TablePagination from "@/components/admin/view/detail/TablePagination.vue";
 
 export default defineComponent({
   name: "TableDesign",
+  components: { TablePagination },
   props: {
     colspanCount: {
       type: Number,
     },
     tableName: {
       type: String,
+    },
+    current: {
+      type: Number,
+    },
+    total: {
+      type: Number,
     },
   },
 });
