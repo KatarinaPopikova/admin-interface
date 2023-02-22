@@ -37,11 +37,14 @@
               </span>
             </div>
             <div class="flex items-baseline justify-between">
-              <button
-                class="px-6 py-2 mt-4 text-white bg-main-color-500 rounded-lg hover:bg-main-color-700"
-              >
-                Prihlásiť
-              </button>
+              <router-link :to="`/${$i18n.locale}/admin/overview/activity`">
+                <!--delete router-link when BE is connected-->
+                <button
+                  class="px-6 py-2 mt-4 text-white bg-main-color-500 rounded-lg hover:bg-main-color-700"
+                >
+                  Prihlásiť
+                </button>
+              </router-link>
             </div>
           </div>
         </form>
